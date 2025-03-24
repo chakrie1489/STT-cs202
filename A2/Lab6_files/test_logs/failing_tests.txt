@@ -1,0 +1,50 @@
+Iteration 1 - Failed Tests:
+
+Iteration 2 - Failed Tests:
+
+Iteration 3 - Failed Tests:
+
+Iteration 1 - Failed Tests:
+
+Iteration 2 - Failed Tests:
+
+Iteration 3 - Failed Tests:
+
+Iteration 1 - Failed Tests:
+
+Iteration 2 - Failed Tests:
+
+Iteration 3 - Failed Tests:
+
+Iteration 1 - Failed Tests:
+tests/test_compression.py::TestHuffmanCoding::test_huffman_coding
+tests/test_heap.py::TestBinaryHeap::test_insert
+tests/test_heap.py::TestBinaryHeap::test_remove_min
+tests/test_linkedlist.py::TestSuite::test_is_palindrome
+Iteration 2 - Failed Tests:
+tests/test_compression.py::TestHuffmanCoding::test_huffman_coding
+tests/test_heap.py::TestBinaryHeap::test_insert
+tests/test_heap.py::TestBinaryHeap::test_remove_min
+tests/test_linkedlist.py::TestSuite::test_is_palindrome
+Iteration 3 - Failed Tests:
+tests/test_compression.py::TestHuffmanCoding::test_huffman_coding
+tests/test_heap.py::TestBinaryHeap::test_insert
+tests/test_heap.py::TestBinaryHeap::test_remove_min
+tests/test_linkedlist.py::TestSuite::test_is_palindrome
+Iteration 1 - Failed Tests:
+
+Iteration 2 - Failed Tests:
+
+Iteration 3 - Failed Tests:
+
+Iteration 1 - Failed Tests:
+
+Iteration 2 - Failed Tests:
+
+Iteration 3 - Failed Tests:
+
+Final Consolidated Failing Tests:
+      3 tests/test_compression.py::TestHuffmanCoding::test_huffman_coding
+      3 tests/test_heap.py::TestBinaryHeap::test_insert
+      3 tests/test_heap.py::TestBinaryHeap::test_remove_min
+      3 tests/test_linkedlist.py::TestSuite::test_is_palindrome

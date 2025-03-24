@@ -1,0 +1,6 @@
+n1: 3.06 seconds
+n_auto: 3.36 seconds
+threads1: 2.85 seconds
+threads_auto: 44.55 seconds
+dist_load: 3.32 seconds
+dist_no: 3.35 seconds

@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.info - heap/algorithms/heap/skyline.py</title>
+  <link rel="stylesheet" type="text/css" href="../../../gcov.css">
+</head>
+
+<body>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="title">LCOV - code coverage report</td></tr>
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+            <tr>
+              <td width="100%">
+                <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="10%" class="headerValue"><a href="../../../index.html">top level</a> - <a href="index.html">heap/algorithms/heap</a> - skyline.py<span style="font-size: 80%;"> (source / <a href="skyline.py.func-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="5%"></td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
+            <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
+            <td class="headerCovTableEntry">17</td>
+            <td class="headerCovTableEntry">17</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test Date:</td>
+            <td class="headerValue">2025-03-23 23:01:00</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntry">1</td>
+          </tr>
+                  <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+
+          <table cellpadding=0 cellspacing=0 border=0>
+            <tr>
+              <td><br></td>
+            </tr>
+            <tr>
+              <td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : # -*- coding: utf-8 -*-</span>
+<span id="L2"><span class="lineNum">       2</span>              : &quot;&quot;&quot;</span>
+<span id="L3"><span class="lineNum">       3</span>              : A city's skyline is the outer contour of the silhouette formed by all the buildings</span>
+<span id="L4"><span class="lineNum">       4</span>              : in that city when viewed from a distance.</span>
+<span id="L5"><span class="lineNum">       5</span>              : Now suppose you are given the locations and height of all the buildings</span>
+<span id="L6"><span class="lineNum">       6</span>              : as shown on a cityscape photo (Figure A),</span>
+<span id="L7"><span class="lineNum">       7</span>              : write a program to output the skyline formed by these buildings collectively (Figure B).</span>
+<span id="L8"><span class="lineNum">       8</span>              : </span>
+<span id="L9"><span class="lineNum">       9</span>              : The geometric information of each building is represented by a triplet of integers [Li, Ri, Hi],</span>
+<span id="L10"><span class="lineNum">      10</span>              : where Li and Ri are the x coordinates of the left and right edge of the ith building, respectively,</span>
+<span id="L11"><span class="lineNum">      11</span>              : and Hi is its height. It is guaranteed that 0 ≤ Li, Ri ≤ INT_MAX, 0 &lt; Hi ≤ INT_MAX, and Ri - Li &gt; 0.</span>
+<span id="L12"><span class="lineNum">      12</span>              : You may assume all buildings are perfect rectangles grounded on an absolutely flat surface at height 0.</span>
+<span id="L13"><span class="lineNum">      13</span>              : </span>
+<span id="L14"><span class="lineNum">      14</span>              : For instance, the dimensions of all buildings in Figure A are recorded as:</span>
+<span id="L15"><span class="lineNum">      15</span>              : [ [2 9 10], [3 7 15], [5 12 12], [15 20 10], [19 24 8] ] .</span>
+<span id="L16"><span class="lineNum">      16</span>              : </span>
+<span id="L17"><span class="lineNum">      17</span>              : The output is a list of &quot;key points&quot; (red dots in Figure B) in the format of</span>
+<span id="L18"><span class="lineNum">      18</span>              : [ [x1,y1], [x2, y2], [x3, y3], ... ]</span>
+<span id="L19"><span class="lineNum">      19</span>              : that uniquely defines a skyline.</span>
+<span id="L20"><span class="lineNum">      20</span>              : A key point is the left endpoint of a horizontal line segment. Note that the last key point,</span>
+<span id="L21"><span class="lineNum">      21</span>              : where the rightmost building ends,</span>
+<span id="L22"><span class="lineNum">      22</span>              : is merely used to mark the termination of the skyline, and always has zero height.</span>
+<span id="L23"><span class="lineNum">      23</span>              : Also, the ground in between any two adjacent buildings should be considered part of the skyline contour.</span>
+<span id="L24"><span class="lineNum">      24</span>              : </span>
+<span id="L25"><span class="lineNum">      25</span>              : For instance, the skyline in Figure B should be represented as:[ [2 10], [3 15], [7 12], [12 0], [15 10], [20 8], [24, 0] ].</span>
+<span id="L26"><span class="lineNum">      26</span>              : </span>
+<span id="L27"><span class="lineNum">      27</span>              : Notes:</span>
+<span id="L28"><span class="lineNum">      28</span>              : </span>
+<span id="L29"><span class="lineNum">      29</span>              : The number of buildings in any input list is guaranteed to be in the range [0, 10000].</span>
+<span id="L30"><span class="lineNum">      30</span>              : The input list is already sorted in ascending order by the left x position Li.</span>
+<span id="L31"><span class="lineNum">      31</span>              : The output list must be sorted by the x position.</span>
+<span id="L32"><span class="lineNum">      32</span>              : There must be no consecutive horizontal lines of equal height in the output skyline. For instance,</span>
+<span id="L33"><span class="lineNum">      33</span>              : [...[2 3], [4 5], [7 5], [11 5], [12 7]...] is not acceptable; the three lines of height 5 should be merged</span>
+<span id="L34"><span class="lineNum">      34</span>              : into one in the final output as such: [...[2 3], [4 5], [12 7], ...]</span>
+<span id="L35"><span class="lineNum">      35</span>              : </span>
+<span id="L36"><span class="lineNum">      36</span>              : &quot;&quot;&quot;</span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC tlaBgGNC">           1 : import heapq</span></span>
+<span id="L38"><span class="lineNum">      38</span>              : </span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">           1 : def get_skyline(lrh):</span></span>
+<span id="L40"><span class="lineNum">      40</span>              :     &quot;&quot;&quot;</span>
+<span id="L41"><span class="lineNum">      41</span>              :     Wortst Time Complexity: O(NlogN)</span>
+<span id="L42"><span class="lineNum">      42</span>              :     :type buildings: List[List[int]]</span>
+<span id="L43"><span class="lineNum">      43</span>              :     :rtype: List[List[int]]</span>
+<span id="L44"><span class="lineNum">      44</span>              :     &quot;&quot;&quot;</span>
+<span id="L45"><span class="lineNum">      45</span> <span class="tlaGNC">           1 :     skyline, live = [], []</span></span>
+<span id="L46"><span class="lineNum">      46</span> <span class="tlaGNC">           1 :     i, n = 0, len(lrh)</span></span>
+<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC">           1 :     while i &lt; n or live:</span></span>
+<span id="L48"><span class="lineNum">      48</span> <span class="tlaGNC">           1 :         if not live or i &lt; n and lrh[i][0] &lt;= -live[0][1]:</span></span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">           1 :             x = lrh[i][0]</span></span>
+<span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC">           1 :             while i &lt; n and lrh[i][0] == x:</span></span>
+<span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC">           1 :                 heapq.heappush(live, (-lrh[i][2], -lrh[i][1]))</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">           1 :                 i += 1</span></span>
+<span id="L53"><span class="lineNum">      53</span>              :         else:</span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">           1 :             x = -live[0][1]</span></span>
+<span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">           1 :             while live and -live[0][1] &lt;= x:</span></span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">           1 :                 heapq.heappop(live)</span></span>
+<span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC">           1 :         height = len(live) and -live[0][0]</span></span>
+<span id="L58"><span class="lineNum">      58</span> <span class="tlaGNC">           1 :         if not skyline or height != skyline[-1][1]:</span></span>
+<span id="L59"><span class="lineNum">      59</span> <span class="tlaGNC">           1 :             skyline += [x, height],</span></span>
+<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC">           1 :     return skyline</span></span>
+        </pre>
+              </td>
+            </tr>
+          </table>
+          <br>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.0-1</a></td></tr>
+          </table>
+          <br>
+
+</body>
+</html>

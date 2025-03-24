@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - combined_coverage.info - dp/algorithms/dp/knapsack.py</title>
+  <link rel="stylesheet" type="text/css" href="../../../gcov.css">
+</head>
+
+<body>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="title">LCOV - code coverage report</td></tr>
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+            <tr>
+              <td width="100%">
+                <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="10%" class="headerValue"><a href="../../../index.html">top level</a> - <a href="index.html">dp/algorithms/dp</a> - knapsack.py<span style="font-size: 80%;"> (source / <a href="knapsack.py.func-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="5%"></td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
+            <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">combined_coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntry">10</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test Date:</td>
+            <td class="headerValue">2025-03-25 01:30:07</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">2</td>
+          </tr>
+                  <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+
+          <table cellpadding=0 cellspacing=0 border=0>
+            <tr>
+              <td><br></td>
+            </tr>
+            <tr>
+              <td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : &quot;&quot;&quot;</span>
+<span id="L2"><span class="lineNum">       2</span>              : Given the capacity of the knapsack and items specified by weights and values,</span>
+<span id="L3"><span class="lineNum">       3</span>              : return the maximum summarized value of the items that can be fit in the</span>
+<span id="L4"><span class="lineNum">       4</span>              : knapsack.</span>
+<span id="L5"><span class="lineNum">       5</span>              : </span>
+<span id="L6"><span class="lineNum">       6</span>              : Example:</span>
+<span id="L7"><span class="lineNum">       7</span>              : capacity = 5, items(value, weight) = [(60, 5), (50, 3), (70, 4), (30, 2)]</span>
+<span id="L8"><span class="lineNum">       8</span>              : result = 80 (items valued 50 and 30 can both be fit in the knapsack)</span>
+<span id="L9"><span class="lineNum">       9</span>              : </span>
+<span id="L10"><span class="lineNum">      10</span>              : The time complexity is O(n * m) and the space complexity is O(m), where n is</span>
+<span id="L11"><span class="lineNum">      11</span>              : the total number of items and m is the knapsack's capacity.</span>
+<span id="L12"><span class="lineNum">      12</span>              : &quot;&quot;&quot;</span>
+<span id="L13"><span class="lineNum">      13</span>              : </span>
+<span id="L14"><span class="lineNum">      14</span>              : </span>
+<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC tlaBgGNC">           1 : class Item:</span></span>
+<span id="L16"><span class="lineNum">      16</span>              : </span>
+<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           1 :     def __init__(self, value, weight):</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">           1 :         self.value = value</span></span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           1 :         self.weight = weight</span></span>
+<span id="L20"><span class="lineNum">      20</span>              : </span>
+<span id="L21"><span class="lineNum">      21</span>              : </span>
+<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">           1 : def get_maximum_value(items, capacity):</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">           1 :     dp = [0] * (capacity + 1)</span></span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           1 :     for item in items:</span></span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">           1 :         for cur_weight in reversed(range(item.weight, capacity+1)):</span></span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">           1 :             dp[cur_weight] = max(dp[cur_weight], item.value + dp[cur_weight - item.weight])</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">           1 :     return dp[capacity]</span></span>
+<span id="L28"><span class="lineNum">      28</span>              : </span>
+        </pre>
+              </td>
+            </tr>
+          </table>
+          <br>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.0-1</a></td></tr>
+          </table>
+          <br>
+
+</body>
+</html>

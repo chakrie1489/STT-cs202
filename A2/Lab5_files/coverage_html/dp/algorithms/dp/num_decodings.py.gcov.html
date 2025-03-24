@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.info - dp/algorithms/dp/num_decodings.py</title>
+  <link rel="stylesheet" type="text/css" href="../../../gcov.css">
+</head>
+
+<body>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="title">LCOV - code coverage report</td></tr>
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+            <tr>
+              <td width="100%">
+                <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="10%" class="headerValue"><a href="../../../index.html">top level</a> - <a href="index.html">dp/algorithms/dp</a> - num_decodings.py<span style="font-size: 80%;"> (source / <a href="num_decodings.py.func-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="5%"></td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
+            <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntryLo">8.7&nbsp;%</td>
+            <td class="headerCovTableEntry">23</td>
+            <td class="headerCovTableEntry">2</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test Date:</td>
+            <td class="headerValue">2025-03-23 23:01:00</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntryLo">0.0&nbsp;%</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">0</td>
+          </tr>
+                  <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+
+          <table cellpadding=0 cellspacing=0 border=0>
+            <tr>
+              <td><br></td>
+            </tr>
+            <tr>
+              <td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : &quot;&quot;&quot;</span>
+<span id="L2"><span class="lineNum">       2</span>              : A message containing letters from A-Z is being</span>
+<span id="L3"><span class="lineNum">       3</span>              : encoded to numbers using the following mapping:</span>
+<span id="L4"><span class="lineNum">       4</span>              : </span>
+<span id="L5"><span class="lineNum">       5</span>              : 'A' -&gt; 1</span>
+<span id="L6"><span class="lineNum">       6</span>              : 'B' -&gt; 2</span>
+<span id="L7"><span class="lineNum">       7</span>              : ...</span>
+<span id="L8"><span class="lineNum">       8</span>              : 'Z' -&gt; 26</span>
+<span id="L9"><span class="lineNum">       9</span>              : Given an encoded message containing digits,</span>
+<span id="L10"><span class="lineNum">      10</span>              : determine the total number of ways to decode it.</span>
+<span id="L11"><span class="lineNum">      11</span>              : </span>
+<span id="L12"><span class="lineNum">      12</span>              : For example,</span>
+<span id="L13"><span class="lineNum">      13</span>              : Given encoded message &quot;12&quot;,</span>
+<span id="L14"><span class="lineNum">      14</span>              : it could be decoded as &quot;AB&quot; (1 2) or &quot;L&quot; (12).</span>
+<span id="L15"><span class="lineNum">      15</span>              : </span>
+<span id="L16"><span class="lineNum">      16</span>              : The number of ways decoding &quot;12&quot; is 2.</span>
+<span id="L17"><span class="lineNum">      17</span>              : &quot;&quot;&quot;</span>
+<span id="L18"><span class="lineNum">      18</span>              : </span>
+<span id="L19"><span class="lineNum">      19</span>              : </span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC tlaBgGNC">           1 : def num_decodings(enc_mes):</span></span>
+<span id="L21"><span class="lineNum">      21</span>              :     &quot;&quot;&quot;</span>
+<span id="L22"><span class="lineNum">      22</span>              :     :type s: str</span>
+<span id="L23"><span class="lineNum">      23</span>              :     :rtype: int</span>
+<span id="L24"><span class="lineNum">      24</span>              :     &quot;&quot;&quot;</span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaUNC tlaBgUNC">           0 :     if not enc_mes or enc_mes[0] == &quot;0&quot;:</span></span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaUNC">           0 :         return 0</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaUNC">           0 :     last_char, last_two_chars = 1, 1</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaUNC">           0 :     for i in range(1, len(enc_mes)):</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaUNC">           0 :         last = last_char if enc_mes[i] != &quot;0&quot; else 0</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaUNC">           0 :         last_two = last_two_chars if int(enc_mes[i-1:i+1]) &lt; 27 and enc_mes[i-1] != &quot;0&quot; else 0</span></span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaUNC">           0 :         last_two_chars = last_char</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaUNC">           0 :         last_char = last+last_two</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC">           0 :     return last_char</span></span>
+<span id="L34"><span class="lineNum">      34</span>              : </span>
+<span id="L35"><span class="lineNum">      35</span>              : </span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">           1 : def num_decodings2(enc_mes):</span></span>
+<span id="L37"><span class="lineNum">      37</span>              :     &quot;&quot;&quot;</span>
+<span id="L38"><span class="lineNum">      38</span>              :     :type s: str</span>
+<span id="L39"><span class="lineNum">      39</span>              :     :rtype: int</span>
+<span id="L40"><span class="lineNum">      40</span>              :     &quot;&quot;&quot;</span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaUNC tlaBgUNC">           0 :     if not enc_mes or enc_mes.startswith('0'):</span></span>
+<span id="L42"><span class="lineNum">      42</span> <span class="tlaUNC">           0 :         return 0</span></span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaUNC">           0 :     stack = [1, 1]</span></span>
+<span id="L44"><span class="lineNum">      44</span> <span class="tlaUNC">           0 :     for i in range(1, len(enc_mes)):</span></span>
+<span id="L45"><span class="lineNum">      45</span> <span class="tlaUNC">           0 :         if enc_mes[i] == '0':</span></span>
+<span id="L46"><span class="lineNum">      46</span> <span class="tlaUNC">           0 :             if enc_mes[i-1] == '0' or enc_mes[i-1] &gt; '2':</span></span>
+<span id="L47"><span class="lineNum">      47</span>              :                 # only '10', '20' is valid</span>
+<span id="L48"><span class="lineNum">      48</span> <span class="tlaUNC">           0 :                 return 0</span></span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaUNC">           0 :             stack.append(stack[-2])</span></span>
+<span id="L50"><span class="lineNum">      50</span> <span class="tlaUNC">           0 :         elif 9 &lt; int(enc_mes[i-1:i+1]) &lt; 27:</span></span>
+<span id="L51"><span class="lineNum">      51</span>              :             # '01 - 09' is not allowed</span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaUNC">           0 :             stack.append(stack[-2]+stack[-1])</span></span>
+<span id="L53"><span class="lineNum">      53</span>              :         else:</span>
+<span id="L54"><span class="lineNum">      54</span>              :             # other case '01, 09, 27'</span>
+<span id="L55"><span class="lineNum">      55</span> <span class="tlaUNC">           0 :             stack.append(stack[-1])</span></span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaUNC">           0 :     return stack[-1]</span></span>
+        </pre>
+              </td>
+            </tr>
+          </table>
+          <br>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.0-1</a></td></tr>
+          </table>
+          <br>
+
+</body>
+</html>

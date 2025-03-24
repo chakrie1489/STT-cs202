@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.info - search/algorithms/search/jump_search.py</title>
+  <link rel="stylesheet" type="text/css" href="../../../gcov.css">
+</head>
+
+<body>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="title">LCOV - code coverage report</td></tr>
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+            <tr>
+              <td width="100%">
+                <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="10%" class="headerValue"><a href="../../../index.html">top level</a> - <a href="index.html">search/algorithms/search</a> - jump_search.py<span style="font-size: 80%;"> (source / <a href="jump_search.py.func-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="5%"></td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
+            <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntryHi">94.4&nbsp;%</td>
+            <td class="headerCovTableEntry">18</td>
+            <td class="headerCovTableEntry">17</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test Date:</td>
+            <td class="headerValue">2025-03-23 23:01:00</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntry">1</td>
+          </tr>
+                  <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+
+          <table cellpadding=0 cellspacing=0 border=0>
+            <tr>
+              <td><br></td>
+            </tr>
+            <tr>
+              <td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : &quot;&quot;&quot;</span>
+<span id="L2"><span class="lineNum">       2</span>              : Jump Search</span>
+<span id="L3"><span class="lineNum">       3</span>              : </span>
+<span id="L4"><span class="lineNum">       4</span>              : Find an element in a sorted array.</span>
+<span id="L5"><span class="lineNum">       5</span>              : &quot;&quot;&quot;</span>
+<span id="L6"><span class="lineNum">       6</span>              : </span>
+<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC tlaBgGNC">           1 : import math</span></span>
+<span id="L8"><span class="lineNum">       8</span>              : </span>
+<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">           1 : def jump_search(arr,target):</span></span>
+<span id="L10"><span class="lineNum">      10</span>              :     &quot;&quot;&quot;</span>
+<span id="L11"><span class="lineNum">      11</span>              :     Worst-case Complexity: O(√n) (root(n))</span>
+<span id="L12"><span class="lineNum">      12</span>              :     All items in list must be sorted like binary search</span>
+<span id="L13"><span class="lineNum">      13</span>              : </span>
+<span id="L14"><span class="lineNum">      14</span>              :     Find block that contains target value and search it linearly in that block</span>
+<span id="L15"><span class="lineNum">      15</span>              :     It returns a first target value in array</span>
+<span id="L16"><span class="lineNum">      16</span>              : </span>
+<span id="L17"><span class="lineNum">      17</span>              :     reference: https://en.wikipedia.org/wiki/Jump_search</span>
+<span id="L18"><span class="lineNum">      18</span>              :     &quot;&quot;&quot;</span>
+<span id="L19"><span class="lineNum">      19</span>              : </span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           1 :     length = len(arr)</span></span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           1 :     block_size = int(math.sqrt(length))</span></span>
+<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">           1 :     block_prev = 0</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">           1 :     block= block_size</span></span>
+<span id="L24"><span class="lineNum">      24</span>              : </span>
+<span id="L25"><span class="lineNum">      25</span>              :     # return -1 means that array doesn't contain target value</span>
+<span id="L26"><span class="lineNum">      26</span>              :     # find block that contains target value</span>
+<span id="L27"><span class="lineNum">      27</span>              : </span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">           1 :     if arr[length - 1] &lt; target:</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">           1 :         return -1</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">           1 :     while block &lt;= length and arr[block - 1] &lt; target:</span></span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           1 :         block_prev = block</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           1 :         block += block_size</span></span>
+<span id="L33"><span class="lineNum">      33</span>              : </span>
+<span id="L34"><span class="lineNum">      34</span>              :     # find target value in block</span>
+<span id="L35"><span class="lineNum">      35</span>              : </span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">           1 :     while arr[block_prev] &lt; target :</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">           1 :         block_prev += 1</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">           1 :         if block_prev == min(block, length) :</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaUNC tlaBgUNC">           0 :             return -1</span></span>
+<span id="L40"><span class="lineNum">      40</span>              : </span>
+<span id="L41"><span class="lineNum">      41</span>              :     # if there is target value in array, return it</span>
+<span id="L42"><span class="lineNum">      42</span>              : </span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC tlaBgGNC">           1 :     if arr[block_prev] == target :</span></span>
+<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">           1 :         return block_prev</span></span>
+<span id="L45"><span class="lineNum">      45</span> <span class="tlaGNC">           1 :     return -1</span></span>
+        </pre>
+              </td>
+            </tr>
+          </table>
+          <br>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.0-1</a></td></tr>
+          </table>
+          <br>
+
+</body>
+</html>

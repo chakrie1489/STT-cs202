@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - combined_coverage.info - sort/algorithms/sort/bucket_sort.py</title>
+  <link rel="stylesheet" type="text/css" href="../../../gcov.css">
+</head>
+
+<body>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="title">LCOV - code coverage report</td></tr>
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+            <tr>
+              <td width="100%">
+                <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="10%" class="headerValue"><a href="../../../index.html">top level</a> - <a href="index.html">sort/algorithms/sort</a> - bucket_sort.py<span style="font-size: 80%;"> (source / <a href="bucket_sort.py.func-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="5%"></td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
+            <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">combined_coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
+            <td class="headerCovTableEntry">19</td>
+            <td class="headerCovTableEntry">19</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test Date:</td>
+            <td class="headerValue">2025-03-25 01:30:07</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">2</td>
+          </tr>
+                  <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+
+          <table cellpadding=0 cellspacing=0 border=0>
+            <tr>
+              <td><br></td>
+            </tr>
+            <tr>
+              <td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span> <span class="tlaGNC tlaBgGNC">           1 : def bucket_sort(arr):</span></span>
+<span id="L2"><span class="lineNum">       2</span>              :     ''' Bucket Sort</span>
+<span id="L3"><span class="lineNum">       3</span>              :         Complexity: O(n^2)</span>
+<span id="L4"><span class="lineNum">       4</span>              :         The complexity is dominated by nextSort</span>
+<span id="L5"><span class="lineNum">       5</span>              :     '''</span>
+<span id="L6"><span class="lineNum">       6</span>              :     # The number of buckets and make buckets</span>
+<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">           1 :     num_buckets = len(arr)</span></span>
+<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">           1 :     buckets = [[] for bucket in range(num_buckets)]</span></span>
+<span id="L9"><span class="lineNum">       9</span>              :     # Assign values into bucket_sort</span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">           1 :     for value in arr:</span></span>
+<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">           1 :         index = value * num_buckets // (max(arr) + 1)</span></span>
+<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">           1 :         buckets[index].append(value)</span></span>
+<span id="L13"><span class="lineNum">      13</span>              :     # Sort</span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           1 :     sorted_list = []</span></span>
+<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">           1 :     for i in range(num_buckets):</span></span>
+<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">           1 :         sorted_list.extend(next_sort(buckets[i]))</span></span>
+<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           1 :     return sorted_list</span></span>
+<span id="L18"><span class="lineNum">      18</span>              : </span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           1 : def next_sort(arr):</span></span>
+<span id="L20"><span class="lineNum">      20</span>              :     # We will use insertion sort here.</span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           1 :     for i in range(1, len(arr)):</span></span>
+<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">           1 :         j = i - 1</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">           1 :         key = arr[i]</span></span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           1 :         while arr[j] &gt; key and j &gt;= 0:</span></span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">           1 :             arr[j+1] = arr[j]</span></span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">           1 :             j = j - 1</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">           1 :         arr[j + 1] = key</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">           1 :     return arr</span></span>
+        </pre>
+              </td>
+            </tr>
+          </table>
+          <br>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.0-1</a></td></tr>
+          </table>
+          <br>
+
+</body>
+</html>

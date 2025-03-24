@@ -1,0 +1,1 @@
+genhtml combined_coverage.info --output-directory combined_coverage_html

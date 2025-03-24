@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.info - maths/algorithms/maths/recursive_binomial_coefficient.py</title>
+  <link rel="stylesheet" type="text/css" href="../../../gcov.css">
+</head>
+
+<body>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="title">LCOV - code coverage report</td></tr>
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+            <tr>
+              <td width="100%">
+                <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="10%" class="headerValue"><a href="../../../index.html">top level</a> - <a href="index.html">maths/algorithms/maths</a> - recursive_binomial_coefficient.py<span style="font-size: 80%;"> (source / <a href="recursive_binomial_coefficient.py.func-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="5%"></td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
+            <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntryLo">0.0&nbsp;%</td>
+            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntry">0</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test Date:</td>
+            <td class="headerValue">2025-03-23 23:01:00</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntryLo">0.0&nbsp;%</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntry">0</td>
+          </tr>
+                  <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+
+          <table cellpadding=0 cellspacing=0 border=0>
+            <tr>
+              <td><br></td>
+            </tr>
+            <tr>
+              <td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span> <span class="tlaUNC tlaBgUNC">           0 : def recursive_binomial_coefficient(n,k):</span></span>
+<span id="L2"><span class="lineNum">       2</span>              :     &quot;&quot;&quot;Calculates the binomial coefficient, C(n,k), with n&gt;=k using recursion</span>
+<span id="L3"><span class="lineNum">       3</span>              :     Time complexity is O(k), so can calculate fairly quickly for large values of k.</span>
+<span id="L4"><span class="lineNum">       4</span>              : </span>
+<span id="L5"><span class="lineNum">       5</span>              :     &gt;&gt;&gt; recursive_binomial_coefficient(5,0)</span>
+<span id="L6"><span class="lineNum">       6</span>              :     1</span>
+<span id="L7"><span class="lineNum">       7</span>              : </span>
+<span id="L8"><span class="lineNum">       8</span>              :     &gt;&gt;&gt; recursive_binomial_coefficient(8,2)</span>
+<span id="L9"><span class="lineNum">       9</span>              :     28</span>
+<span id="L10"><span class="lineNum">      10</span>              : </span>
+<span id="L11"><span class="lineNum">      11</span>              :     &gt;&gt;&gt; recursive_binomial_coefficient(500,300)</span>
+<span id="L12"><span class="lineNum">      12</span>              :     5054949849935535817667719165973249533761635252733275327088189563256013971725761702359997954491403585396607971745777019273390505201262259748208640</span>
+<span id="L13"><span class="lineNum">      13</span>              : </span>
+<span id="L14"><span class="lineNum">      14</span>              :     &quot;&quot;&quot;</span>
+<span id="L15"><span class="lineNum">      15</span>              : </span>
+<span id="L16"><span class="lineNum">      16</span> <span class="tlaUNC">           0 :     if k&gt;n:</span></span>
+<span id="L17"><span class="lineNum">      17</span> <span class="tlaUNC">           0 :         raise ValueError('Invalid Inputs, ensure that n &gt;= k')</span></span>
+<span id="L18"><span class="lineNum">      18</span>              :         #function is only defined for n&gt;=k</span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaUNC">           0 :     if k == 0 or n == k:</span></span>
+<span id="L20"><span class="lineNum">      20</span>              :         #C(n,0) = C(n,n) = 1, so this is our base case.</span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaUNC">           0 :         return 1</span></span>
+<span id="L22"><span class="lineNum">      22</span> <span class="tlaUNC">           0 :     if k &gt; n/2:</span></span>
+<span id="L23"><span class="lineNum">      23</span>              :         #C(n,k) = C(n,n-k), so if n/2 is sufficiently small, we can reduce the problem size.</span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaUNC">           0 :         return recursive_binomial_coefficient(n,n-k)</span></span>
+<span id="L25"><span class="lineNum">      25</span>              :     #else, we know C(n,k) = (n/k)C(n-1,k-1), so we can use this to reduce our problem size.</span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaUNC">           0 :     return int((n/k)*recursive_binomial_coefficient(n-1,k-1))</span></span>
+        </pre>
+              </td>
+            </tr>
+          </table>
+          <br>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.0-1</a></td></tr>
+          </table>
+          <br>
+
+</body>
+</html>

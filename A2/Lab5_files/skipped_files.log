@@ -1,0 +1,1193 @@
+Skipped Files Log
+=================
+algorithms.arrays.garage - Skipped due to timeout
+ERROR    Exception in Thread: <Thread(Thread-1575 (_execute_test_case), started daemon 136113746347712)>                    execution.py:2093
+                    ╭────────────────────────────────────── Traceback (most recent call last) ───────────────────────────────────────╮                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/threading.py:1016 in _bootstrap_inner                       │                  
+                    │                                                                                                                │                  
+                    │   1013 │   │   │   │   _sys.setprofile(_profile_hook)                                                          │                  
+                    │   1014 │   │   │                                                                                               │                  
+                    │   1015 │   │   │   try:                                                                                        │                  
+                    │ ❱ 1016 │   │   │   │   self.run()                                                                              │                  
+                    │   1017 │   │   │   except:                                                                                     │                  
+                    │   1018 │   │   │   │   self._invoke_excepthook(self)                                                           │                  
+                    │   1019 │   │   finally:                                                                                        │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/threading.py:953 in run                                     │                  
+                    │                                                                                                                │                  
+                    │    950 │   │   """                                                                                             │                  
+                    │    951 │   │   try:                                                                                            │                  
+                    │    952 │   │   │   if self._target is not None:                                                                │                  
+                    │ ❱  953 │   │   │   │   self._target(*self._args, **self._kwargs)                                               │                  
+                    │    954 │   │   finally:                                                                                        │                  
+                    │    955 │   │   │   # Avoid a refcycle if the thread is running a function with                                 │                  
+                    │    956 │   │   │   # an argument that has a member that points to the thread.                                  │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/site-packages/pynguin/testcase/execution.py:2197 in         │                  
+                    │ _execute_test_case                                                                                             │                  
+                    │                                                                                                                │                  
+                    │   2194 │   │   for idx, statement in enumerate(test_case.statements):                                          │                  
+                    │   2195 │   │   │   ast_node = self._before_statement_execution(statement, exec_ctx)                            │                  
+                    │   2196 │   │   │   exception = self.execute_ast(ast_node, exec_ctx)                                            │                  
+                    │ ❱ 2197 │   │   │   self._after_statement_execution(statement, exec_ctx, exception)                             │                  
+                    │   2198 │   │   │   if exception is not None:                                                                   │                  
+                    │   2199 │   │   │   │   result.report_new_thrown_exception(idx, exception)                                      │                  
+                    │   2200 │   │   │   │   break                                                                                   │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/site-packages/pynguin/testcase/execution.py:2294 in         │                  
+                    │ _after_statement_execution                                                                                     │                  
+                    │                                                                                                                │                  
+                    │   2291 │   │   # See comments in _before_statement_execution                                                   │                  
+                    │   2292 │   │   if self.tracer.current_thread_identifier != threading.current_thread().ident:                   │                  
+                    │   2293 │   │   │   # Kill this thread                                                                          │                  
+                    │ ❱ 2294 │   │   │   raise RuntimeError("The current thread shall not be executed any more, thus                 │                  
+                    │        I kill it.")                                                                                            │                  
+                    │   2295 │   │                                                                                                   │                  
+                    │   2296 │   │   self._tracer.disable()                                                                          │                  
+                    │   2297 │   │   try:                                                                                            │                  
+                    ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                  
+                    RuntimeError: The current thread shall not be executed any more, thus I kill it.                                                    
+           ERROR    Exception in Thread: <Thread(Thread-2105 (_execute_test_case), started daemon 136113886856896)>                    execution.py:2093
+                    ╭────────────────────────────────────── Traceback (most recent call last) ───────────────────────────────────────╮                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/threading.py:1016 in _bootstrap_inner                       │                  
+                    │                                                                                                                │                  
+                    │   1013 │   │   │   │   _sys.setprofile(_profile_hook)                                                          │                  
+                    │   1014 │   │   │                                                                                               │                  
+                    │   1015 │   │   │   try:                                                                                        │                  
+                    │ ❱ 1016 │   │   │   │   self.run()                                                                              │                  
+                    │   1017 │   │   │   except:                                                                                     │                  
+                    │   1018 │   │   │   │   self._invoke_excepthook(self)                                                           │                  
+                    │   1019 │   │   finally:                                                                                        │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/threading.py:953 in run                                     │                  
+                    │                                                                                                                │                  
+                    │    950 │   │   """                                                                                             │                  
+                    │    951 │   │   try:                                                                                            │                  
+                    │    952 │   │   │   if self._target is not None:                                                                │                  
+                    │ ❱  953 │   │   │   │   self._target(*self._args, **self._kwargs)                                               │                  
+                    │    954 │   │   finally:                                                                                        │                  
+                    │    955 │   │   │   # Avoid a refcycle if the thread is running a function with                                 │                  
+                    │    956 │   │   │   # an argument that has a member that points to the thread.                                  │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/site-packages/pynguin/testcase/execution.py:2197 in         │                  
+                    │ _execute_test_case                                                                                             │                  
+                    │                                                                                                                │                  
+                    │   2194 │   │   for idx, statement in enumerate(test_case.statements):                                          │                  
+                    │   2195 │   │   │   ast_node = self._before_statement_execution(statement, exec_ctx)                            │                  
+                    │   2196 │   │   │   exception = self.execute_ast(ast_node, exec_ctx)                                            │                  
+                    │ ❱ 2197 │   │   │   self._after_statement_execution(statement, exec_ctx, exception)                             │                  
+                    │   2198 │   │   │   if exception is not None:                                                                   │                  
+                    │   2199 │   │   │   │   result.report_new_thrown_exception(idx, exception)                                      │                  
+                    │   2200 │   │   │   │   break                                                                                   │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/site-packages/pynguin/testcase/execution.py:2294 in         │                  
+                    │ _after_statement_execution                                                                                     │                  
+                    │                                                                                                                │                  
+                    │   2291 │   │   # See comments in _before_statement_execution                                                   │                  
+                    │   2292 │   │   if self.tracer.current_thread_identifier != threading.current_thread().ident:                   │                  
+                    │   2293 │   │   │   # Kill this thread                                                                          │                  
+                    │ ❱ 2294 │   │   │   raise RuntimeError("The current thread shall not be executed any more, thus                 │                  
+                    │        I kill it.")                                                                                            │                  
+                    │   2295 │   │                                                                                                   │                  
+                    │   2296 │   │   self._tracer.disable()                                                                          │                  
+                    │   2297 │   │   try:                                                                                            │                  
+                    ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                  
+                    RuntimeError: The current thread shall not be executed any more, thus I kill it.                                                    
+           ERROR    Exception in Thread: <Thread(Thread-2496 (_execute_test_case), started daemon 136113886856896)>                    execution.py:2093
+                    ╭────────────────────────────────────── Traceback (most recent call last) ───────────────────────────────────────╮                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/threading.py:1016 in _bootstrap_inner                       │                  
+                    │                                                                                                                │                  
+                    │   1013 │   │   │   │   _sys.setprofile(_profile_hook)                                                          │                  
+                    │   1014 │   │   │                                                                                               │                  
+                    │   1015 │   │   │   try:                                                                                        │                  
+                    │ ❱ 1016 │   │   │   │   self.run()                                                                              │                  
+                    │   1017 │   │   │   except:                                                                                     │                  
+                    │   1018 │   │   │   │   self._invoke_excepthook(self)                                                           │                  
+                    │   1019 │   │   finally:                                                                                        │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/threading.py:953 in run                                     │                  
+                    │                                                                                                                │                  
+                    │    950 │   │   """                                                                                             │                  
+                    │    951 │   │   try:                                                                                            │                  
+                    │    952 │   │   │   if self._target is not None:                                                                │                  
+                    │ ❱  953 │   │   │   │   self._target(*self._args, **self._kwargs)                                               │                  
+                    │    954 │   │   finally:                                                                                        │                  
+                    │    955 │   │   │   # Avoid a refcycle if the thread is running a function with                                 │                  
+                    │    956 │   │   │   # an argument that has a member that points to the thread.                                  │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/site-packages/pynguin/testcase/execution.py:2197 in         │                  
+                    │ _execute_test_case                                                                                             │                  
+                    │                                                                                                                │                  
+                    │   2194 │   │   for idx, statement in enumerate(test_case.statements):                                          │                  
+                    │   2195 │   │   │   ast_node = self._before_statement_execution(statement, exec_ctx)                            │                  
+                    │   2196 │   │   │   exception = self.execute_ast(ast_node, exec_ctx)                                            │                  
+                    │ ❱ 2197 │   │   │   self._after_statement_execution(statement, exec_ctx, exception)                             │                  
+                    │   2198 │   │   │   if exception is not None:                                                                   │                  
+                    │   2199 │   │   │   │   result.report_new_thrown_exception(idx, exception)                                      │                  
+                    │   2200 │   │   │   │   break                                                                                   │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/site-packages/pynguin/testcase/execution.py:2294 in         │                  
+                    │ _after_statement_execution                                                                                     │                  
+                    │                                                                                                                │                  
+                    │   2291 │   │   # See comments in _before_statement_execution                                                   │                  
+                    │   2292 │   │   if self.tracer.current_thread_identifier != threading.current_thread().ident:                   │                  
+                    │   2293 │   │   │   # Kill this thread                                                                          │                  
+                    │ ❱ 2294 │   │   │   raise RuntimeError("The current thread shall not be executed any more, thus                 │                  
+                    │        I kill it.")                                                                                            │                  
+                    │   2295 │   │                                                                                                   │                  
+                    │   2296 │   │   self._tracer.disable()                                                                          │                  
+                    │   2297 │   │   try:                                                                                            │                  
+                    ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                  
+                    RuntimeError: The current thread shall not be executed any more, thus I kill it.                                                    
+           ERROR    Exception in Thread: <Thread(Thread-2600 (_execute_test_case), started daemon 136113886856896)>                    execution.py:2093
+                    ╭────────────────────────────────────── Traceback (most recent call last) ───────────────────────────────────────╮                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/threading.py:1016 in _bootstrap_inner                       │                  
+                    │                                                                                                                │                  
+                    │   1013 │   │   │   │   _sys.setprofile(_profile_hook)                                                          │                  
+                    │   1014 │   │   │                                                                                               │                  
+                    │   1015 │   │   │   try:                                                                                        │                  
+                    │ ❱ 1016 │   │   │   │   self.run()                                                                              │                  
+                    │   1017 │   │   │   except:                                                                                     │                  
+                    │   1018 │   │   │   │   self._invoke_excepthook(self)                                                           │                  
+                    │   1019 │   │   finally:                                                                                        │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/threading.py:953 in run                                     │                  
+                    │                                                                                                                │                  
+                    │    950 │   │   """                                                                                             │                  
+                    │    951 │   │   try:                                                                                            │                  
+                    │    952 │   │   │   if self._target is not None:                                                                │                  
+                    │ ❱  953 │   │   │   │   self._target(*self._args, **self._kwargs)                                               │                  
+                    │    954 │   │   finally:                                                                                        │                  
+                    │    955 │   │   │   # Avoid a refcycle if the thread is running a function with                                 │                  
+                    │    956 │   │   │   # an argument that has a member that points to the thread.                                  │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/site-packages/pynguin/testcase/execution.py:2197 in         │                  
+                    │ _execute_test_case                                                                                             │                  
+                    │                                                                                                                │                  
+                    │   2194 │   │   for idx, statement in enumerate(test_case.statements):                                          │                  
+                    │   2195 │   │   │   ast_node = self._before_statement_execution(statement, exec_ctx)                            │                  
+                    │   2196 │   │   │   exception = self.execute_ast(ast_node, exec_ctx)                                            │                  
+                    │ ❱ 2197 │   │   │   self._after_statement_execution(statement, exec_ctx, exception)                             │                  
+                    │   2198 │   │   │   if exception is not None:                                                                   │                  
+                    │   2199 │   │   │   │   result.report_new_thrown_exception(idx, exception)                                      │                  
+                    │   2200 │   │   │   │   break                                                                                   │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/site-packages/pynguin/testcase/execution.py:2294 in         │                  
+                    │ _after_statement_execution                                                                                     │                  
+                    │                                                                                                                │                  
+                    │   2291 │   │   # See comments in _before_statement_execution                                                   │                  
+                    │   2292 │   │   if self.tracer.current_thread_identifier != threading.current_thread().ident:                   │                  
+                    │   2293 │   │   │   # Kill this thread                                                                          │                  
+                    │ ❱ 2294 │   │   │   raise RuntimeError("The current thread shall not be executed any more, thus                 │                  
+                    │        I kill it.")                                                                                            │                  
+                    │   2295 │   │                                                                                                   │                  
+                    │   2296 │   │   self._tracer.disable()                                                                          │                  
+                    │   2297 │   │   try:                                                                                            │                  
+                    ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                  
+                    RuntimeError: The current thread shall not be executed any more, thus I kill it.                                                    
+           ERROR    Exception in Thread: <Thread(Thread-3379 (_execute_test_case), started daemon 136113836525248)>                    execution.py:2093
+                    ╭────────────────────────────────────── Traceback (most recent call last) ───────────────────────────────────────╮                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/threading.py:1016 in _bootstrap_inner                       │                  
+                    │                                                                                                                │                  
+                    │   1013 │   │   │   │   _sys.setprofile(_profile_hook)                                                          │                  
+                    │   1014 │   │   │                                                                                               │                  
+                    │   1015 │   │   │   try:                                                                                        │                  
+                    │ ❱ 1016 │   │   │   │   self.run()                                                                              │                  
+                    │   1017 │   │   │   except:                                                                                     │                  
+                    │   1018 │   │   │   │   self._invoke_excepthook(self)                                                           │                  
+                    │   1019 │   │   finally:                                                                                        │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/threading.py:953 in run                                     │                  
+                    │                                                                                                                │                  
+                    │    950 │   │   """                                                                                             │                  
+                    │    951 │   │   try:                                                                                            │                  
+                    │    952 │   │   │   if self._target is not None:                                                                │                  
+                    │ ❱  953 │   │   │   │   self._target(*self._args, **self._kwargs)                                               │                  
+                    │    954 │   │   finally:                                                                                        │                  
+                    │    955 │   │   │   # Avoid a refcycle if the thread is running a function with                                 │                  
+                    │    956 │   │   │   # an argument that has a member that points to the thread.                                  │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/site-packages/pynguin/testcase/execution.py:2197 in         │                  
+                    │ _execute_test_case                                                                                             │                  
+                    │                                                                                                                │                  
+                    │   2194 │   │   for idx, statement in enumerate(test_case.statements):                                          │                  
+                    │   2195 │   │   │   ast_node = self._before_statement_execution(statement, exec_ctx)                            │                  
+                    │   2196 │   │   │   exception = self.execute_ast(ast_node, exec_ctx)                                            │                  
+                    │ ❱ 2197 │   │   │   self._after_statement_execution(statement, exec_ctx, exception)                             │                  
+                    │   2198 │   │   │   if exception is not None:                                                                   │                  
+                    │   2199 │   │   │   │   result.report_new_thrown_exception(idx, exception)                                      │                  
+                    │   2200 │   │   │   │   break                                                                                   │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/site-packages/pynguin/testcase/execution.py:2294 in         │                  
+                    │ _after_statement_execution                                                                                     │                  
+                    │                                                                                                                │                  
+                    │   2291 │   │   # See comments in _before_statement_execution                                                   │                  
+                    │   2292 │   │   if self.tracer.current_thread_identifier != threading.current_thread().ident:                   │                  
+                    │   2293 │   │   │   # Kill this thread                                                                          │                  
+                    │ ❱ 2294 │   │   │   raise RuntimeError("The current thread shall not be executed any more, thus                 │                  
+                    │        I kill it.")                                                                                            │                  
+                    │   2295 │   │                                                                                                   │                  
+                    │   2296 │   │   self._tracer.disable()                                                                          │                  
+                    │   2297 │   │   try:                                                                                            │                  
+                    ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                  
+                    RuntimeError: The current thread shall not be executed any more, thus I kill it.                                                    
+           ERROR    Exception in Thread: <Thread(Thread-3847 (_execute_test_case), started daemon 136113886856896)>                    execution.py:2093
+                    ╭────────────────────────────────────── Traceback (most recent call last) ───────────────────────────────────────╮                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/threading.py:1016 in _bootstrap_inner                       │                  
+                    │                                                                                                                │                  
+                    │   1013 │   │   │   │   _sys.setprofile(_profile_hook)                                                          │                  
+                    │   1014 │   │   │                                                                                               │                  
+                    │   1015 │   │   │   try:                                                                                        │                  
+                    │ ❱ 1016 │   │   │   │   self.run()                                                                              │                  
+                    │   1017 │   │   │   except:                                                                                     │                  
+                    │   1018 │   │   │   │   self._invoke_excepthook(self)                                                           │                  
+                    │   1019 │   │   finally:                                                                                        │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/threading.py:953 in run                                     │                  
+                    │                                                                                                                │                  
+                    │    950 │   │   """                                                                                             │                  
+                    │    951 │   │   try:                                                                                            │                  
+                    │    952 │   │   │   if self._target is not None:                                                                │                  
+                    │ ❱  953 │   │   │   │   self._target(*self._args, **self._kwargs)                                               │                  
+                    │    954 │   │   finally:                                                                                        │                  
+                    │    955 │   │   │   # Avoid a refcycle if the thread is running a function with                                 │                  
+                    │    956 │   │   │   # an argument that has a member that points to the thread.                                  │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/site-packages/pynguin/testcase/execution.py:2197 in         │                  
+                    │ _execute_test_case                                                                                             │                  
+                    │                                                                                                                │                  
+                    │   2194 │   │   for idx, statement in enumerate(test_case.statements):                                          │                  
+                    │   2195 │   │   │   ast_node = self._before_statement_execution(statement, exec_ctx)                            │                  
+                    │   2196 │   │   │   exception = self.execute_ast(ast_node, exec_ctx)                                            │                  
+                    │ ❱ 2197 │   │   │   self._after_statement_execution(statement, exec_ctx, exception)                             │                  
+                    │   2198 │   │   │   if exception is not None:                                                                   │                  
+                    │   2199 │   │   │   │   result.report_new_thrown_exception(idx, exception)                                      │                  
+                    │   2200 │   │   │   │   break                                                                                   │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/site-packages/pynguin/testcase/execution.py:2294 in         │                  
+                    │ _after_statement_execution                                                                                     │                  
+                    │                                                                                                                │                  
+                    │   2291 │   │   # See comments in _before_statement_execution                                                   │                  
+                    │   2292 │   │   if self.tracer.current_thread_identifier != threading.current_thread().ident:                   │                  
+                    │   2293 │   │   │   # Kill this thread                                                                          │                  
+                    │ ❱ 2294 │   │   │   raise RuntimeError("The current thread shall not be executed any more, thus                 │                  
+                    │        I kill it.")                                                                                            │                  
+                    │   2295 │   │                                                                                                   │                  
+                    │   2296 │   │   self._tracer.disable()                                                                          │                  
+                    │   2297 │   │   try:                                                                                            │                  
+                    ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                  
+                    RuntimeError: The current thread shall not be executed any more, thus I kill it.
+algorithms.arrays.three_sum - Skipped due to timeout
+ ERROR    Exception in Thread: <Thread(Thread-190233 (_execute_test_case), started daemon 125549924058816)>                  execution.py:2093
+                    ╭────────────────────────────────────── Traceback (most recent call last) ───────────────────────────────────────╮                  
+                    │ /home/pakambo/miniconda3/envs/lab53/lib/python3.10/threading.py:1016 in _bootstrap_inner                       │                  
+                    │                                                                                                                │                  
+                    │   1013 │   │   │   │   _sys.setprofile(_profile_hook)                                                          │                  
+                    │   1014 │   │   │                                                                                               │                  
+                    │   1015 │   │   │   try:                                                                                        │                  
+                    │ ❱ 1016 │   │   │   │   self.run()                                                                              │                  
+                    │   1017 │   │   │   except:                                                                                     │                  
+                    │   1018 │   │   │   │   self._invoke_excepthook(self)                                                           │                  
+                    │   1019 │   │   finally:                                                                                        │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab53/lib/python3.10/threading.py:953 in run                                     │                  
+                    │                                                                                                                │                  
+                    │    950 │   │   """                                                                                             │                  
+                    │    951 │   │   try:                                                                                            │                  
+                    │    952 │   │   │   if self._target is not None:                                                                │                  
+                    │ ❱  953 │   │   │   │   self._target(*self._args, **self._kwargs)                                               │                  
+                    │    954 │   │   finally:                                                                                        │                  
+                    │    955 │   │   │   # Avoid a refcycle if the thread is running a function with                                 │                  
+                    │    956 │   │   │   # an argument that has a member that points to the thread.                                  │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab53/lib/python3.10/site-packages/pynguin/testcase/execution.py:2197 in         │                  
+                    │ _execute_test_case                                                                                             │                  
+                    │                                                                                                                │                  
+                    │   2194 │   │   for idx, statement in enumerate(test_case.statements):                                          │                  
+                    │   2195 │   │   │   ast_node = self._before_statement_execution(statement, exec_ctx)                            │                  
+                    │   2196 │   │   │   exception = self.execute_ast(ast_node, exec_ctx)                                            │                  
+                    │ ❱ 2197 │   │   │   self._after_statement_execution(statement, exec_ctx, exception)                             │                  
+                    │   2198 │   │   │   if exception is not None:                                                                   │                  
+                    │   2199 │   │   │   │   result.report_new_thrown_exception(idx, exception)                                      │                  
+                    │   2200 │   │   │   │   break                                                                                   │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab53/lib/python3.10/site-packages/pynguin/testcase/execution.py:2294 in         │                  
+                    │ _after_statement_execution                                                                                     │                  
+                    │                                                                                                                │                  
+                    │   2291 │   │   # See comments in _before_statement_execution                                                   │                  
+                    │   2292 │   │   if self.tracer.current_thread_identifier != threading.current_thread().ident:                   │                  
+                    │   2293 │   │   │   # Kill this thread                                                                          │                  
+                    │ ❱ 2294 │   │   │   raise RuntimeError("The current thread shall not be executed any more, thus                 │                  
+                    │        I kill it.")                                                                                            │                  
+                    │   2295 │   │                                                                                                   │                  
+                    │   2296 │   │   self._tracer.disable()                                                                          │                  
+                    │   2297 │   │   try:                                                                                            │                  
+                    ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                  
+                    RuntimeError: The current thread shall not be executed any more, thus I kill it.
+algorithms.bit.flip_bit_longest_sequence - Skipped due to timeout
+ ERROR    Exception in Thread: <Thread(Thread-797 (_execute_test_case), started daemon 136534726543040)>                     execution.py:2093
+                    ╭────────────────────────────────────── Traceback (most recent call last) ───────────────────────────────────────╮                  
+                    │ /home/pakambo/miniconda3/envs/stt5/lib/python3.10/threading.py:1016 in _bootstrap_inner                        │                  
+                    │                                                                                                                │                  
+                    │   1013 │   │   │   │   _sys.setprofile(_profile_hook)                                                          │                  
+                    │   1014 │   │   │                                                                                               │                  
+                    │   1015 │   │   │   try:                                                                                        │                  
+                    │ ❱ 1016 │   │   │   │   self.run()                                                                              │                  
+                    │   1017 │   │   │   except:                                                                                     │                  
+                    │   1018 │   │   │   │   self._invoke_excepthook(self)                                                           │                  
+                    │   1019 │   │   finally:                                                                                        │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/stt5/lib/python3.10/threading.py:953 in run                                      │                  
+                    │                                                                                                                │                  
+                    │    950 │   │   """                                                                                             │                  
+                    │    951 │   │   try:                                                                                            │                  
+                    │    952 │   │   │   if self._target is not None:                                                                │                  
+                    │ ❱  953 │   │   │   │   self._target(*self._args, **self._kwargs)                                               │                  
+                    │    954 │   │   finally:                                                                                        │                  
+                    │    955 │   │   │   # Avoid a refcycle if the thread is running a function with                                 │                  
+                    │    956 │   │   │   # an argument that has a member that points to the thread.                                  │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/stt5/lib/python3.10/site-packages/pynguin/testcase/execution.py:2197 in          │                  
+                    │ _execute_test_case                                                                                             │                  
+                    │                                                                                                                │                  
+                    │   2194 │   │   for idx, statement in enumerate(test_case.statements):                                          │                  
+                    │   2195 │   │   │   ast_node = self._before_statement_execution(statement, exec_ctx)                            │                  
+                    │   2196 │   │   │   exception = self.execute_ast(ast_node, exec_ctx)                                            │                  
+                    │ ❱ 2197 │   │   │   self._after_statement_execution(statement, exec_ctx, exception)                             │                  
+                    │   2198 │   │   │   if exception is not None:                                                                   │                  
+                    │   2199 │   │   │   │   result.report_new_thrown_exception(idx, exception)                                      │                  
+                    │   2200 │   │   │   │   break                                                                                   │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/stt5/lib/python3.10/site-packages/pynguin/testcase/execution.py:2294 in          │                  
+                    │ _after_statement_execution                                                                                     │                  
+                    │                                                                                                                │                  
+                    │   2291 │   │   # See comments in _before_statement_execution                                                   │                  
+                    │   2292 │   │   if self.tracer.current_thread_identifier != threading.current_thread().ident:                   │                  
+                    │   2293 │   │   │   # Kill this thread                                                                          │                  
+                    │ ❱ 2294 │   │   │   raise RuntimeError("The current thread shall not be executed any more, thus                 │                  
+                    │        I kill it.")                                                                                            │                  
+                    │   2295 │   │                                                                                                   │                  
+                    │   2296 │   │   self._tracer.disable()                                                                          │                  
+                    │   2297 │   │   try:                                                                                            │                  
+                    ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                  
+                    RuntimeError: The current thread shall not be executed any more, thus I kill it.                                                    
+           ERROR    Exception in Thread: <Thread(Thread-1273 (_execute_test_case), started daemon 136534713960128)>                    execution.py:2093
+                    ╭────────────────────────────────────── Traceback (most recent call last) ───────────────────────────────────────╮                  
+                    │ /home/pakambo/miniconda3/envs/stt5/lib/python3.10/threading.py:1016 in _bootstrap_inner                        │                  
+                    │                                                                                                                │                  
+                    │   1013 │   │   │   │   _sys.setprofile(_profile_hook)                                                          │                  
+                    │   1014 │   │   │                                                                                               │                  
+                    │   1015 │   │   │   try:                                                                                        │                  
+                    │ ❱ 1016 │   │   │   │   self.run()                                                                              │                  
+                    │   1017 │   │   │   except:                                                                                     │                  
+                    │   1018 │   │   │   │   self._invoke_excepthook(self)                                                           │                  
+                    │   1019 │   │   finally:                                                                                        │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/stt5/lib/python3.10/threading.py:953 in run                                      │                  
+                    │                                                                                                                │                  
+                    │    950 │   │   """                                                                                             │                  
+                    │    951 │   │   try:                                                                                            │                  
+                    │    952 │   │   │   if self._target is not None:                                                                │                  
+                    │ ❱  953 │   │   │   │   self._target(*self._args, **self._kwargs)                                               │                  
+                    │    954 │   │   finally:                                                                                        │                  
+                    │    955 │   │   │   # Avoid a refcycle if the thread is running a function with                                 │                  
+                    │    956 │   │   │   # an argument that has a member that points to the thread.                                  │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/stt5/lib/python3.10/site-packages/pynguin/testcase/execution.py:2197 in          │                  
+                    │ _execute_test_case                                                                                             │                  
+                    │                                                                                                                │                  
+                    │   2194 │   │   for idx, statement in enumerate(test_case.statements):                                          │                  
+                    │   2195 │   │   │   ast_node = self._before_statement_execution(statement, exec_ctx)                            │                  
+                    │   2196 │   │   │   exception = self.execute_ast(ast_node, exec_ctx)                                            │                  
+                    │ ❱ 2197 │   │   │   self._after_statement_execution(statement, exec_ctx, exception)                             │                  
+                    │   2198 │   │   │   if exception is not None:                                                                   │                  
+                    │   2199 │   │   │   │   result.report_new_thrown_exception(idx, exception)                                      │                  
+                    │   2200 │   │   │   │   break                                                                                   │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/stt5/lib/python3.10/site-packages/pynguin/testcase/execution.py:2294 in          │                  
+                    │ _after_statement_execution                                                                                     │                  
+                    │                                                                                                                │                  
+                    │   2291 │   │   # See comments in _before_statement_execution                                                   │                  
+                    │   2292 │   │   if self.tracer.current_thread_identifier != threading.current_thread().ident:                   │                  
+                    │   2293 │   │   │   # Kill this thread                                                                          │                  
+                    │ ❱ 2294 │   │   │   raise RuntimeError("The current thread shall not be executed any more, thus                 │                  
+                    │        I kill it.")                                                                                            │                  
+                    │   2295 │   │                                                                                                   │                  
+                    │   2296 │   │   self._tracer.disable()                                                                          │                  
+                    │   2297 │   │   try:                                                                                            │                  
+                    ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                  
+                    RuntimeError: The current thread shall not be executed any more, thus I kill it.                                                    
+           ERROR    Exception in Thread: <Thread(Thread-1807 (_execute_test_case), started daemon 136534713960128)>                    execution.py:2093
+                    ╭────────────────────────────────────── Traceback (most recent call last) ───────────────────────────────────────╮                  
+                    │ /home/pakambo/miniconda3/envs/stt5/lib/python3.10/threading.py:1016 in _bootstrap_inner                        │                  
+                    │                                                                                                                │                  
+                    │   1013 │   │   │   │   _sys.setprofile(_profile_hook)                                                          │                  
+                    │   1014 │   │   │                                                                                               │                  
+                    │   1015 │   │   │   try:                                                                                        │                  
+                    │ ❱ 1016 │   │   │   │   self.run()                                                                              │                  
+                    │   1017 │   │   │   except:                                                                                     │                  
+                    │   1018 │   │   │   │   self._invoke_excepthook(self)                                                           │                  
+                    │   1019 │   │   finally:                                                                                        │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/stt5/lib/python3.10/threading.py:953 in run                                      │                  
+                    │                                                                                                                │                  
+                    │    950 │   │   """                                                                                             │                  
+                    │    951 │   │   try:                                                                                            │                  
+                    │    952 │   │   │   if self._target is not None:                                                                │                  
+                    │ ❱  953 │   │   │   │   self._target(*self._args, **self._kwargs)                                               │                  
+                    │    954 │   │   finally:                                                                                        │                  
+                    │    955 │   │   │   # Avoid a refcycle if the thread is running a function with                                 │                  
+                    │    956 │   │   │   # an argument that has a member that points to the thread.                                  │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/stt5/lib/python3.10/site-packages/pynguin/testcase/execution.py:2197 in          │                  
+                    │ _execute_test_case                                                                                             │                  
+                    │                                                                                                                │                  
+                    │   2194 │   │   for idx, statement in enumerate(test_case.statements):                                          │                  
+                    │   2195 │   │   │   ast_node = self._before_statement_execution(statement, exec_ctx)                            │                  
+                    │   2196 │   │   │   exception = self.execute_ast(ast_node, exec_ctx)                                            │                  
+                    │ ❱ 2197 │   │   │   self._after_statement_execution(statement, exec_ctx, exception)                             │                  
+                    │   2198 │   │   │   if exception is not None:                                                                   │                  
+                    │   2199 │   │   │   │   result.report_new_thrown_exception(idx, exception)                                      │                  
+                    │   2200 │   │   │   │   break                                                                                   │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/stt5/lib/python3.10/site-packages/pynguin/testcase/execution.py:2294 in          │                  
+                    │ _after_statement_execution                                                                                     │                  
+                    │                                                                                                                │                  
+                    │   2291 │   │   # See comments in _before_statement_execution                                                   │                  
+                    │   2292 │   │   if self.tracer.current_thread_identifier != threading.current_thread().ident:                   │                  
+                    │   2293 │   │   │   # Kill this thread                                                                          │                  
+                    │ ❱ 2294 │   │   │   raise RuntimeError("The current thread shall not be executed any more, thus                 │                  
+                    │        I kill it.")                                                                                            │                  
+                    │   2295 │   │                                                                                                   │                  
+                    │   2296 │   │   self._tracer.disable()                                                                          │                  
+                    │   2297 │   │   try:                                                                                            │                  
+                    ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                  
+                    RuntimeError: The current thread shall not be executed any more, thus I kill it.
+algorithms.compression.huffman_coding - Skipped due to timeout
+.pancake_sort - Skipped due to error: ╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /home/pakambo/miniconda3/envs/lab51/bin/pynguin:8 in <module>                │
+│                                                                              │
+│   5 from pynguin.cli import main                                             │
+│   6 if __name__ == '__main__':                                               │
+│   7 │   sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])     │
+│ ❱ 8 │   sys.exit(main())                                                     │
+│   9                                                                          │
+│                                                                              │
+│ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/site-packages/pynguin/cli │
+│ .py:209 in main                                                              │
+│                                                                              │
+│   206 │   set_configuration(parsed.config)                                   │
+│   207 │   if console is not None:                                            │
+│   208 │   │   with console.status("Running Pynguin..."):                     │
+│ ❱ 209 │   │   │   return run_pynguin().value                                 │
+│   210 │   else:                                                              │
+│   211 │   │   return run_pynguin().value                                     │
+│   212                                                                        │
+│                                                                              │
+│ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/site-packages/pynguin/gen │
+│ erator.py:118 in run_pynguin                                                 │
+│                                                                              │
+│   115 │   """                                                                │
+│   116 │   try:                                                               │
+│   117 │   │   _LOGGER.info("Start Pynguin Test Generation…")                 │
+│ ❱ 118 │   │   return _run()                                                  │
+│   119 │   finally:                                                           │
+│   120 │   │   _LOGGER.info("Stop Pynguin Test Generation…")                  │
+│   121                                                                        │
+│                                                                              │
+│ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/site-packages/pynguin/gen │
+│ erator.py:484 in _run                                                        │
+│                                                                              │
+│   481                                                                        │
+│   482                                                                        │
+│   483 def _run() -> ReturnCode:                                              │
+│ ❱ 484 │   if (setup_result := _setup_and_check()) is None:                   │
+│   485 │   │   return ReturnCode.SETUP_FAILED                                 │
+│   486 │   executor, test_cluster, constant_provider = setup_result           │
+│   487 │   # traces slices for test cases after execution                     │
+│                                                                              │
+│ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/site-packages/pynguin/gen │
+│ erator.py:249 in _setup_and_check                                            │
+│                                                                              │
+│   246 │   │   set(config.configuration.statistics_output.coverage_metrics),  │
+│   247 │   │   dynamic_constant_provider,                                     │
+│   248 │   )                                                                  │
+│ ❱ 249 │   if not _load_sut(tracer):                                          │
+│   250 │   │   return None                                                    │
+│   251 │   if not _setup_report_dir():                                        │
+│   252 │   │   return None                                                    │
+│                                                                              │
+│ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/site-packages/pynguin/gen │
+│ erator.py:171 in _load_sut                                                   │
+│                                                                              │
+│   168 │   try:                                                               │
+│   169 │   │   # We need to set the current thread ident so the import trace  │
+│   170 │   │   tracer.current_thread_identifier = threading.current_thread(). │
+│ ❱ 171 │   │   importlib.import_module(config.configuration.module_name)      │
+│   172 │   except ImportError as ex:                                          │
+│   173 │   │   # A module could not be imported because some dependencies     │
+│   174 │   │   # are missing or it is malformed                               │
+│                                                                              │
+│ /home/pakambo/miniconda3/envs/lab51/lib/python3.10/importlib/__init__.py:121 │
+│ in import_module                                                             │
+│                                                                              │
+│   118 │   │   if not package:                                                │
+│   119 │   │   │   msg = ("the 'package' argument is required to perform a re │
+│   120 │   │   │   │      "import for {!r}")                                  │
+│ ❱ 121 │   │   │   raise TypeError(msg.format(name))                          │
+│   122 │   │   for character in name:                                         │
+│   123 │   │   │   if character != '.':                                       │
+│   124 │   │   │   │   break                                                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+TypeError: the 'package' argument is required to perform a relative import for 
+'.pancake_sort'
+algorithms.sort.top_sort - Skipped due to timeout
+ERROR    Exception in Thread: <Thread(Thread-128309 (_execute_test_case), started daemon 138345021703872)>                  execution.py:2093
+                    ╭────────────────────────────────────── Traceback (most recent call last) ───────────────────────────────────────╮                  
+                    │ /home/pakambo/miniconda3/envs/lab52/lib/python3.10/threading.py:1016 in _bootstrap_inner                       │                  
+                    │                                                                                                                │                  
+                    │   1013 │   │   │   │   _sys.setprofile(_profile_hook)                                                          │                  
+                    │   1014 │   │   │                                                                                               │                  
+                    │   1015 │   │   │   try:                                                                                        │                  
+                    │ ❱ 1016 │   │   │   │   self.run()                                                                              │                  
+                    │   1017 │   │   │   except:                                                                                     │                  
+                    │   1018 │   │   │   │   self._invoke_excepthook(self)                                                           │                  
+                    │   1019 │   │   finally:                                                                                        │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab52/lib/python3.10/threading.py:953 in run                                     │                  
+                    │                                                                                                                │                  
+                    │    950 │   │   """                                                                                             │                  
+                    │    951 │   │   try:                                                                                            │                  
+                    │    952 │   │   │   if self._target is not None:                                                                │                  
+                    │ ❱  953 │   │   │   │   self._target(*self._args, **self._kwargs)                                               │                  
+                    │    954 │   │   finally:                                                                                        │                  
+                    │    955 │   │   │   # Avoid a refcycle if the thread is running a function with                                 │                  
+                    │    956 │   │   │   # an argument that has a member that points to the thread.                                  │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab52/lib/python3.10/site-packages/pynguin/testcase/execution.py:2197 in         │                  
+                    │ _execute_test_case                                                                                             │                  
+                    │                                                                                                                │                  
+                    │   2194 │   │   for idx, statement in enumerate(test_case.statements):                                          │                  
+                    │   2195 │   │   │   ast_node = self._before_statement_execution(statement, exec_ctx)                            │                  
+                    │   2196 │   │   │   exception = self.execute_ast(ast_node, exec_ctx)                                            │                  
+                    │ ❱ 2197 │   │   │   self._after_statement_execution(statement, exec_ctx, exception)                             │                  
+                    │   2198 │   │   │   if exception is not None:                                                                   │                  
+                    │   2199 │   │   │   │   result.report_new_thrown_exception(idx, exception)                                      │                  
+                    │   2200 │   │   │   │   break                                                                                   │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab52/lib/python3.10/site-packages/pynguin/testcase/execution.py:2294 in         │                  
+                    │ _after_statement_execution                                                                                     │                  
+                    │                                                                                                                │                  
+                    │   2291 │   │   # See comments in _before_statement_execution                                                   │                  
+                    │   2292 │   │   if self.tracer.current_thread_identifier != threading.current_thread().ident:                   │                  
+                    │   2293 │   │   │   # Kill this thread                                                                          │                  
+                    │ ❱ 2294 │   │   │   raise RuntimeError("The current thread shall not be executed any more, thus                 │                  
+                    │        I kill it.")                                                                                            │                  
+                    │   2295 │   │                                                                                                   │                  
+                    │   2296 │   │   self._tracer.disable()                                                                          │                  
+                    │   2297 │   │   try:                                                                                            │                  
+                    ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                  
+                    RuntimeError: The current thread shall not be executed any more, thus I kill it.                                                    
+           ERROR    Exception in Thread: <Thread(Thread-128446 (_execute_test_case), started daemon 138345021703872)>                  execution.py:2093
+                    ╭────────────────────────────────────── Traceback (most recent call last) ───────────────────────────────────────╮                  
+                    │ /home/pakambo/miniconda3/envs/lab52/lib/python3.10/threading.py:1016 in _bootstrap_inner                       │                  
+                    │                                                                                                                │                  
+                    │   1013 │   │   │   │   _sys.setprofile(_profile_hook)                                                          │                  
+                    │   1014 │   │   │                                                                                               │                  
+                    │   1015 │   │   │   try:                                                                                        │                  
+                    │ ❱ 1016 │   │   │   │   self.run()                                                                              │                  
+                    │   1017 │   │   │   except:                                                                                     │                  
+                    │   1018 │   │   │   │   self._invoke_excepthook(self)                                                           │                  
+                    │   1019 │   │   finally:                                                                                        │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab52/lib/python3.10/threading.py:953 in run                                     │                  
+                    │                                                                                                                │                  
+                    │    950 │   │   """                                                                                             │                  
+                    │    951 │   │   try:                                                                                            │                  
+                    │    952 │   │   │   if self._target is not None:                                                                │                  
+                    │ ❱  953 │   │   │   │   self._target(*self._args, **self._kwargs)                                               │                  
+                    │    954 │   │   finally:                                                                                        │                  
+                    │    955 │   │   │   # Avoid a refcycle if the thread is running a function with                                 │                  
+                    │    956 │   │   │   # an argument that has a member that points to the thread.                                  │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab52/lib/python3.10/site-packages/pynguin/testcase/execution.py:2197 in         │                  
+                    │ _execute_test_case                                                                                             │                  
+                    │                                                                                                                │                  
+                    │   2194 │   │   for idx, statement in enumerate(test_case.statements):                                          │                  
+                    │   2195 │   │   │   ast_node = self._before_statement_execution(statement, exec_ctx)                            │                  
+                    │   2196 │   │   │   exception = self.execute_ast(ast_node, exec_ctx)                                            │                  
+                    │ ❱ 2197 │   │   │   self._after_statement_execution(statement, exec_ctx, exception)                             │                  
+                    │   2198 │   │   │   if exception is not None:                                                                   │                  
+                    │   2199 │   │   │   │   result.report_new_thrown_exception(idx, exception)                                      │                  
+                    │   2200 │   │   │   │   break                                                                                   │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab52/lib/python3.10/site-packages/pynguin/testcase/execution.py:2294 in         │                  
+                    │ _after_statement_execution                                                                                     │                  
+                    │                                                                                                                │                  
+                    │   2291 │   │   # See comments in _before_statement_execution                                                   │                  
+                    │   2292 │   │   if self.tracer.current_thread_identifier != threading.current_thread().ident:                   │                  
+                    │   2293 │   │   │   # Kill this thread                                                                          │                  
+                    │ ❱ 2294 │   │   │   raise RuntimeError("The current thread shall not be executed any more, thus                 │                  
+                    │        I kill it.")                                                                                            │                  
+                    │   2295 │   │                                                                                                   │                  
+                    │   2296 │   │   self._tracer.disable()                                                                          │                  
+                    │   2297 │   │   try:                                                                                            │                  
+                    ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                  
+                    RuntimeError: The current thread shall not be executed any more, thus I kill it.                                                    
+           ERROR    Exception in Thread: <Thread(Thread-128686 (_execute_test_case), started daemon 138345011218112)>                  execution.py:2093
+                    ╭────────────────────────────────────── Traceback (most recent call last) ───────────────────────────────────────╮                  
+                    │ /home/pakambo/miniconda3/envs/lab52/lib/python3.10/threading.py:1016 in _bootstrap_inner                       │                  
+                    │                                                                                                                │                  
+                    │   1013 │   │   │   │   _sys.setprofile(_profile_hook)                                                          │                  
+                    │   1014 │   │   │                                                                                               │                  
+                    │   1015 │   │   │   try:                                                                                        │                  
+                    │ ❱ 1016 │   │   │   │   self.run()                                                                              │                  
+                    │   1017 │   │   │   except:                                                                                     │                  
+                    │   1018 │   │   │   │   self._invoke_excepthook(self)                                                           │                  
+                    │   1019 │   │   finally:                                                                                        │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab52/lib/python3.10/threading.py:953 in run                                     │                  
+                    │                                                                                                                │                  
+                    │    950 │   │   """                                                                                             │                  
+                    │    951 │   │   try:                                                                                            │                  
+                    │    952 │   │   │   if self._target is not None:                                                                │                  
+                    │ ❱  953 │   │   │   │   self._target(*self._args, **self._kwargs)                                               │                  
+                    │    954 │   │   finally:                                                                                        │                  
+                    │    955 │   │   │   # Avoid a refcycle if the thread is running a function with                                 │                  
+                    │    956 │   │   │   # an argument that has a member that points to the thread.                                  │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab52/lib/python3.10/site-packages/pynguin/testcase/execution.py:2197 in         │                  
+                    │ _execute_test_case                                                                                             │                  
+                    │                                                                                                                │                  
+                    │   2194 │   │   for idx, statement in enumerate(test_case.statements):                                          │                  
+                    │   2195 │   │   │   ast_node = self._before_statement_execution(statement, exec_ctx)                            │                  
+                    │   2196 │   │   │   exception = self.execute_ast(ast_node, exec_ctx)                                            │                  
+                    │ ❱ 2197 │   │   │   self._after_statement_execution(statement, exec_ctx, exception)                             │                  
+                    │   2198 │   │   │   if exception is not None:                                                                   │                  
+                    │   2199 │   │   │   │   result.report_new_thrown_exception(idx, exception)                                      │                  
+                    │   2200 │   │   │   │   break                                                                                   │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab52/lib/python3.10/site-packages/pynguin/testcase/execution.py:2294 in         │                  
+                    │ _after_statement_execution                                                                                     │                  
+                    │                                                                                                                │                  
+                    │   2291 │   │   # See comments in _before_statement_execution                                                   │                  
+                    │   2292 │   │   if self.tracer.current_thread_identifier != threading.current_thread().ident:                   │                  
+                    │   2293 │   │   │   # Kill this thread                                                                          │                  
+                    │ ❱ 2294 │   │   │   raise RuntimeError("The current thread shall not be executed any more, thus                 │                  
+                    │        I kill it.")                                                                                            │                  
+                    │   2295 │   │                                                                                                   │                  
+                    │   2296 │   │   self._tracer.disable()                                                                          │                  
+                    │   2297 │   │   try:                                                                                            │                  
+                    ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                  
+                    RuntimeError: The current thread shall not be executed any more, thus I kill it.
+algorithms.strings.fizzbuzz - Skipped due to timeout
+ERROR    Exception in Thread: <Thread(Thread-30268 (_execute_test_case), started daemon 130286836778688)>                   execution.py:2093
+                    ╭────────────────────────────────────── Traceback (most recent call last) ───────────────────────────────────────╮                  
+                    │ /home/pakambo/miniconda3/envs/lab52/lib/python3.10/threading.py:1016 in _bootstrap_inner                       │                  
+                    │                                                                                                                │                  
+                    │   1013 │   │   │   │   _sys.setprofile(_profile_hook)                                                          │                  
+                    │   1014 │   │   │                                                                                               │                  
+                    │   1015 │   │   │   try:                                                                                        │                  
+                    │ ❱ 1016 │   │   │   │   self.run()                                                                              │                  
+                    │   1017 │   │   │   except:                                                                                     │                  
+                    │   1018 │   │   │   │   self._invoke_excepthook(self)                                                           │                  
+                    │   1019 │   │   finally:                                                                                        │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab52/lib/python3.10/threading.py:953 in run                                     │                  
+                    │                                                                                                                │                  
+                    │    950 │   │   """                                                                                             │                  
+                    │    951 │   │   try:                                                                                            │                  
+                    │    952 │   │   │   if self._target is not None:                                                                │                  
+                    │ ❱  953 │   │   │   │   self._target(*self._args, **self._kwargs)                                               │                  
+                    │    954 │   │   finally:                                                                                        │                  
+                    │    955 │   │   │   # Avoid a refcycle if the thread is running a function with                                 │                  
+                    │    956 │   │   │   # an argument that has a member that points to the thread.                                  │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab52/lib/python3.10/site-packages/pynguin/testcase/execution.py:2197 in         │                  
+                    │ _execute_test_case                                                                                             │                  
+                    │                                                                                                                │                  
+                    │   2194 │   │   for idx, statement in enumerate(test_case.statements):                                          │                  
+                    │   2195 │   │   │   ast_node = self._before_statement_execution(statement, exec_ctx)                            │                  
+                    │   2196 │   │   │   exception = self.execute_ast(ast_node, exec_ctx)                                            │                  
+                    │ ❱ 2197 │   │   │   self._after_statement_execution(statement, exec_ctx, exception)                             │                  
+                    │   2198 │   │   │   if exception is not None:                                                                   │                  
+                    │   2199 │   │   │   │   result.report_new_thrown_exception(idx, exception)                                      │                  
+                    │   2200 │   │   │   │   break                                                                                   │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab52/lib/python3.10/site-packages/pynguin/testcase/execution.py:2294 in         │                  
+                    │ _after_statement_execution                                                                                     │                  
+                    │                                                                                                                │                  
+                    │   2291 │   │   # See comments in _before_statement_execution                                                   │                  
+                    │   2292 │   │   if self.tracer.current_thread_identifier != threading.current_thread().ident:                   │                  
+                    │   2293 │   │   │   # Kill this thread                                                                          │                  
+                    │ ❱ 2294 │   │   │   raise RuntimeError("The current thread shall not be executed any more, thus                 │                  
+                    │        I kill it.")                                                                                            │                  
+                    │   2295 │   │                                                                                                   │                  
+                    │   2296 │   │   self._tracer.disable()                                                                          │                  
+                    │   2297 │   │   try:                                                                                            │                  
+                    ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                  
+                    RuntimeError: The current thread shall not be executed any more, thus I kill it.
+algorithms.strings.merge_string_checker - Skipped due to timeout
+ERROR    Exception in Thread: <Thread(Thread-131786 (_execute_test_case), started daemon 137323943560896)>                  execution.py:2093
+                    ╭────────────────────────────────────── Traceback (most recent call last) ───────────────────────────────────────╮                  
+                    │ /home/pakambo/miniconda3/envs/lab52/lib/python3.10/threading.py:1016 in _bootstrap_inner                       │                  
+                    │                                                                                                                │                  
+                    │   1013 │   │   │   │   _sys.setprofile(_profile_hook)                                                          │                  
+                    │   1014 │   │   │                                                                                               │                  
+                    │   1015 │   │   │   try:                                                                                        │                  
+                    │ ❱ 1016 │   │   │   │   self.run()                                                                              │                  
+                    │   1017 │   │   │   except:                                                                                     │                  
+                    │   1018 │   │   │   │   self._invoke_excepthook(self)                                                           │                  
+                    │   1019 │   │   finally:                                                                                        │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab52/lib/python3.10/threading.py:953 in run                                     │                  
+                    │                                                                                                                │                  
+                    │    950 │   │   """                                                                                             │                  
+                    │    951 │   │   try:                                                                                            │                  
+                    │    952 │   │   │   if self._target is not None:                                                                │                  
+                    │ ❱  953 │   │   │   │   self._target(*self._args, **self._kwargs)                                               │                  
+                    │    954 │   │   finally:                                                                                        │                  
+                    │    955 │   │   │   # Avoid a refcycle if the thread is running a function with                                 │                  
+                    │    956 │   │   │   # an argument that has a member that points to the thread.                                  │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab52/lib/python3.10/site-packages/pynguin/testcase/execution.py:2197 in         │                  
+                    │ _execute_test_case                                                                                             │                  
+                    │                                                                                                                │                  
+                    │   2194 │   │   for idx, statement in enumerate(test_case.statements):                                          │                  
+                    │   2195 │   │   │   ast_node = self._before_statement_execution(statement, exec_ctx)                            │                  
+                    │   2196 │   │   │   exception = self.execute_ast(ast_node, exec_ctx)                                            │                  
+                    │ ❱ 2197 │   │   │   self._after_statement_execution(statement, exec_ctx, exception)                             │                  
+                    │   2198 │   │   │   if exception is not None:                                                                   │                  
+                    │   2199 │   │   │   │   result.report_new_thrown_exception(idx, exception)                                      │                  
+                    │   2200 │   │   │   │   break                                                                                   │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab52/lib/python3.10/site-packages/pynguin/testcase/execution.py:2294 in         │                  
+                    │ _after_statement_execution                                                                                     │                  
+                    │                                                                                                                │                  
+                    │   2291 │   │   # See comments in _before_statement_execution                                                   │                  
+                    │   2292 │   │   if self.tracer.current_thread_identifier != threading.current_thread().ident:                   │                  
+                    │   2293 │   │   │   # Kill this thread                                                                          │                  
+                    │ ❱ 2294 │   │   │   raise RuntimeError("The current thread shall not be executed any more, thus                 │                  
+                    │        I kill it.")                                                                                            │                  
+                    │   2295 │   │                                                                                                   │                  
+                    │   2296 │   │   self._tracer.disable()                                                                          │                  
+                    │   2297 │   │   try:                                                                                            │                  
+                    ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                  
+                    RuntimeError: The current thread shall not be executed any more, thus I kill it.                                                    
+algorithms.strings.multiply_strings - Skipped due to timeout
+ERROR    Exception in Thread: <Thread(Thread-45932 (_execute_test_case), started daemon 123299583493824)>                   execution.py:2093
+                    ╭────────────────────────────────────── Traceback (most recent call last) ───────────────────────────────────────╮                  
+                    │ /home/pakambo/miniconda3/envs/lab53/lib/python3.10/threading.py:1016 in _bootstrap_inner                       │                  
+                    │                                                                                                                │                  
+                    │   1013 │   │   │   │   _sys.setprofile(_profile_hook)                                                          │                  
+                    │   1014 │   │   │                                                                                               │                  
+                    │   1015 │   │   │   try:                                                                                        │                  
+                    │ ❱ 1016 │   │   │   │   self.run()                                                                              │                  
+                    │   1017 │   │   │   except:                                                                                     │                  
+                    │   1018 │   │   │   │   self._invoke_excepthook(self)                                                           │                  
+                    │   1019 │   │   finally:                                                                                        │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab53/lib/python3.10/threading.py:953 in run                                     │                  
+                    │                                                                                                                │                  
+                    │    950 │   │   """                                                                                             │                  
+                    │    951 │   │   try:                                                                                            │                  
+                    │    952 │   │   │   if self._target is not None:                                                                │                  
+                    │ ❱  953 │   │   │   │   self._target(*self._args, **self._kwargs)                                               │                  
+                    │    954 │   │   finally:                                                                                        │                  
+                    │    955 │   │   │   # Avoid a refcycle if the thread is running a function with                                 │                  
+                    │    956 │   │   │   # an argument that has a member that points to the thread.                                  │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab53/lib/python3.10/site-packages/pynguin/testcase/execution.py:2197 in         │                  
+                    │ _execute_test_case                                                                                             │                  
+                    │                                                                                                                │                  
+                    │   2194 │   │   for idx, statement in enumerate(test_case.statements):                                          │                  
+                    │   2195 │   │   │   ast_node = self._before_statement_execution(statement, exec_ctx)                            │                  
+                    │   2196 │   │   │   exception = self.execute_ast(ast_node, exec_ctx)                                            │                  
+                    │ ❱ 2197 │   │   │   self._after_statement_execution(statement, exec_ctx, exception)                             │                  
+                    │   2198 │   │   │   if exception is not None:                                                                   │                  
+                    │   2199 │   │   │   │   result.report_new_thrown_exception(idx, exception)                                      │                  
+                    │   2200 │   │   │   │   break                                                                                   │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab53/lib/python3.10/site-packages/pynguin/testcase/execution.py:2294 in         │                  
+                    │ _after_statement_execution                                                                                     │                  
+                    │                                                                                                                │                  
+                    │   2291 │   │   # See comments in _before_statement_execution                                                   │                  
+                    │   2292 │   │   if self.tracer.current_thread_identifier != threading.current_thread().ident:                   │                  
+                    │   2293 │   │   │   # Kill this thread                                                                          │                  
+                    │ ❱ 2294 │   │   │   raise RuntimeError("The current thread shall not be executed any more, thus                 │                  
+                    │        I kill it.")                                                                                            │                  
+                    │   2295 │   │                                                                                                   │                  
+                    │   2296 │   │   self._tracer.disable()                                                                          │                  
+                    │   2297 │   │   try:                                                                                            │                  
+                    ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                  
+                    RuntimeError: The current thread shall not be executed any more, thus I kill it.                                                    
+algorithms.strings.strip_url_params - Skipped due to timeout
+[00:00:15] ERROR    While getting the types of exceptions in the handler, expected to find an ast.Name, ast.Tuple, or                  syntaxtree.py:339
+                    ast.Attribute,but got <ast.Call object at 0x7f7b2c3a4be0>                                                                           
+           ERROR    While getting the types of exceptions in the handler, expected to find an ast.Name, ast.Tuple, or                  syntaxtree.py:339
+                    ast.Attribute,but got <ast.Call object at 0x7f7b2c032d40>                                                                           
+Exception ignored in: <function _TemporaryFileCloser.__del__ at 0x7f7b3031d000>
+Traceback (most recent call last):
+  File "/home/pakambo/miniconda3/envs/lab5/lib/python3.10/tempfile.py", line 466, in __del__
+    self.close()
+  File "/home/pakambo/miniconda3/envs/lab5/lib/python3.10/tempfile.py", line 459, in close
+    self.file.close()
+AttributeError: 'str' object has no attribute 'close'
+Exception ignored in: <function _TemporaryFileCloser.__del__ at 0x7f7b3031d000>
+Traceback (most recent call last):
+  File "/home/pakambo/miniconda3/envs/lab5/lib/python3.10/tempfile.py", line 466, in __del__
+    self.close()
+  File "/home/pakambo/miniconda3/envs/lab5/lib/python3.10/tempfile.py", line 459, in close
+    self.file.close()
+AttributeError: 'str' object has no attribute 'close'
+Exception ignored in: <function _TemporaryFileCloser.__del__ at 0x7f7b3031d000>
+Traceback (most recent call last):
+  File "/home/pakambo/miniconda3/envs/lab5/lib/python3.10/tempfile.py", line 466, in __del__
+    self.close()
+  File "/home/pakambo/miniconda3/envs/lab5/lib/python3.10/tempfile.py", line 459, in close
+    self.file.close()
+AttributeError: 'str' object has no attribute 'close'
+Exception ignored in: <function _TemporaryFileCloser.__del__ at 0x7f7b3031d000>
+Traceback (most recent call last):
+  File "/home/pakambo/miniconda3/envs/lab5/lib/python3.10/tempfile.py", line 466, in __del__
+    self.close()
+  File "/home/pakambo/miniconda3/envs/lab5/lib/python3.10/tempfile.py", line 459, in close
+    self.file.close()
+AttributeError: 'str' object has no attribute 'close'
+Exception ignored in: <function _TemporaryFileCloser.__del__ at 0x7f7b3031d000>
+Traceback (most recent call last):
+  File "/home/pakambo/miniconda3/envs/lab5/lib/python3.10/tempfile.py", line 466, in __del__
+    self.close()
+  File "/home/pakambo/miniconda3/envs/lab5/lib/python3.10/tempfile.py", line 459, in close
+    self.file.close()
+AttributeError: 'str' object has no attribute 'close'
+algorithms.strings.text_justification - Skipped due to timeout
+ERROR    Exception in Thread: <Thread(Thread-2601 (_execute_test_case), started daemon 125755965048512)>                    execution.py:2093
+                    ╭────────────────────────────────────── Traceback (most recent call last) ───────────────────────────────────────╮                  
+                    │ /home/pakambo/miniconda3/envs/lab55/lib/python3.10/threading.py:1016 in _bootstrap_inner                       │                  
+                    │                                                                                                                │                  
+                    │   1013 │   │   │   │   _sys.setprofile(_profile_hook)                                                          │                  
+                    │   1014 │   │   │                                                                                               │                  
+                    │   1015 │   │   │   try:                                                                                        │                  
+                    │ ❱ 1016 │   │   │   │   self.run()                                                                              │                  
+                    │   1017 │   │   │   except:                                                                                     │                  
+                    │   1018 │   │   │   │   self._invoke_excepthook(self)                                                           │                  
+                    │   1019 │   │   finally:                                                                                        │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab55/lib/python3.10/threading.py:953 in run                                     │                  
+                    │                                                                                                                │                  
+                    │    950 │   │   """                                                                                             │                  
+                    │    951 │   │   try:                                                                                            │                  
+                    │    952 │   │   │   if self._target is not None:                                                                │                  
+                    │ ❱  953 │   │   │   │   self._target(*self._args, **self._kwargs)                                               │                  
+                    │    954 │   │   finally:                                                                                        │                  
+                    │    955 │   │   │   # Avoid a refcycle if the thread is running a function with                                 │                  
+                    │    956 │   │   │   # an argument that has a member that points to the thread.                                  │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab55/lib/python3.10/site-packages/pynguin/testcase/execution.py:2197 in         │                  
+                    │ _execute_test_case                                                                                             │                  
+                    │                                                                                                                │                  
+                    │   2194 │   │   for idx, statement in enumerate(test_case.statements):                                          │                  
+                    │   2195 │   │   │   ast_node = self._before_statement_execution(statement, exec_ctx)                            │                  
+                    │   2196 │   │   │   exception = self.execute_ast(ast_node, exec_ctx)                                            │                  
+                    │ ❱ 2197 │   │   │   self._after_statement_execution(statement, exec_ctx, exception)                             │                  
+                    │   2198 │   │   │   if exception is not None:                                                                   │                  
+                    │   2199 │   │   │   │   result.report_new_thrown_exception(idx, exception)                                      │                  
+                    │   2200 │   │   │   │   break                                                                                   │                  
+                    │                                                                                                                │                  
+                    │ /home/pakambo/miniconda3/envs/lab55/lib/python3.10/site-packages/pynguin/testcase/execution.py:2294 in         │                  
+                    │ _after_statement_execution                                                                                     │                  
+                    │                                                                                                                │                  
+                    │   2291 │   │   # See comments in _before_statement_execution                                                   │                  
+                    │   2292 │   │   if self.tracer.current_thread_identifier != threading.current_thread().ident:                   │                  
+                    │   2293 │   │   │   # Kill this thread                                                                          │                  
+                    │ ❱ 2294 │   │   │   raise RuntimeError("The current thread shall not be executed any more, thus                 │                  
+                    │        I kill it.")                                                                                            │                  
+                    │   2295 │   │                                                                                                   │                  
+                    │   2296 │   │   self._tracer.disable()                                                                          │                  
+                    │   2297 │   │   try:                                                                                            │                  
+                    ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                  
+                    RuntimeError: The current thread shall not be executed any more, thus I kill it.
+algorithms.tree.avl.avl - Skipped due to error: [06:02:30] ERROR    Failed to load SUT: No module named 'tree'  generator.py:175
+                    ╭─── Traceback (most recent call last) ───╮                 
+                    │ /home/pakambo/miniconda3/envs/lab51/lib │                 
+                    │ /python3.10/site-packages/pynguin/gener │                 
+                    │ ator.py:171 in _load_sut                │                 
+                    │                                         │                 
+                    │   168 │   try:                          │                 
+                    │   169 │   │   # We need to set the curr │                 
+                    │   170 │   │   tracer.current_thread_ide │                 
+                    │ ❱ 171 │   │   importlib.import_module(c │                 
+                    │   172 │   except ImportError as ex:     │                 
+                    │   173 │   │   # A module could not be i │                 
+                    │   174 │   │   # are missing or it is ma │                 
+                    │                                         │                 
+                    │ /home/pakambo/miniconda3/envs/lab51/lib │                 
+                    │ /python3.10/importlib/__init__.py:126   │                 
+                    │ in import_module                        │                 
+                    │                                         │                 
+                    │   123 │   │   │   if character != '.':  │                 
+                    │   124 │   │   │   │   break             │                 
+                    │   125 │   │   │   level += 1            │                 
+                    │ ❱ 126 │   return _bootstrap._gcd_import │                 
+                    │   127                                   │                 
+                    │   128                                   │                 
+                    │   129 _RELOADING = {}                   │                 
+                    │ in _gcd_import:1050                     │                 
+                    │ in _find_and_load:1027                  │                 
+                    │ in _find_and_load_unlocked:1006         │                 
+                    │ in _load_unlocked:688                   │                 
+                    │                                         │                 
+                    │ /home/pakambo/miniconda3/envs/lab51/lib │                 
+                    │ /python3.10/site-packages/pynguin/instr │                 
+                    │ umentation/machinery.py:60 in           │                 
+                    │ exec_module                             │                 
+                    │                                         │                 
+                    │    57 │                                 │                 
+                    │    58 │   def exec_module(self, module) │                 
+                    │    59 │   │   self._tracer.reset()      │                 
+                    │ ❱  60 │   │   super().exec_module(modul │                 
+                    │    61 │   │   self._tracer.store_import │                 
+                    │    62 │                                 │                 
+                    │    63 │   def get_code(self, fullname)  │                 
+                    │ in exec_module:883                      │                 
+                    │ in _call_with_frames_removed:241        │                 
+                    │                                         │                 
+                    │ /home/pakambo/Documents/6th             │                 
+                    │ sem/cse202/lab5/algorithms/./algorithms │                 
+                    │ /tree/avl/avl.py:2 in <module>          │                 
+                    │                                         │                 
+                    │     1 """ Imports TreeNodes"""          │                 
+                    │ ❱   2 from tree.tree import TreeNode    │                 
+                    │     3                                   │                 
+                    │     4                                   │                 
+                    │     5 class AvlTree(object):            │                 
+                    ╰─────────────────────────────────────────╯                 
+                    ModuleNotFoundError: No module named 'tree'                 
+algorithms.tree.bin_tree_to_list - Skipped due to error: [06:06:01] ERROR    Failed to load SUT: No module named 'tree'  generator.py:175
+                    ╭─── Traceback (most recent call last) ───╮                 
+                    │ /home/pakambo/miniconda3/envs/lab51/lib │                 
+                    │ /python3.10/site-packages/pynguin/gener │                 
+                    │ ator.py:171 in _load_sut                │                 
+                    │                                         │                 
+                    │   168 │   try:                          │                 
+                    │   169 │   │   # We need to set the curr │                 
+                    │   170 │   │   tracer.current_thread_ide │                 
+                    │ ❱ 171 │   │   importlib.import_module(c │                 
+                    │   172 │   except ImportError as ex:     │                 
+                    │   173 │   │   # A module could not be i │                 
+                    │   174 │   │   # are missing or it is ma │                 
+                    │                                         │                 
+                    │ /home/pakambo/miniconda3/envs/lab51/lib │                 
+                    │ /python3.10/importlib/__init__.py:126   │                 
+                    │ in import_module                        │                 
+                    │                                         │                 
+                    │   123 │   │   │   if character != '.':  │                 
+                    │   124 │   │   │   │   break             │                 
+                    │   125 │   │   │   level += 1            │                 
+                    │ ❱ 126 │   return _bootstrap._gcd_import │                 
+                    │   127                                   │                 
+                    │   128                                   │                 
+                    │   129 _RELOADING = {}                   │                 
+                    │ in _gcd_import:1050                     │                 
+                    │ in _find_and_load:1027                  │                 
+                    │ in _find_and_load_unlocked:1006         │                 
+                    │ in _load_unlocked:688                   │                 
+                    │                                         │                 
+                    │ /home/pakambo/miniconda3/envs/lab51/lib │                 
+                    │ /python3.10/site-packages/pynguin/instr │                 
+                    │ umentation/machinery.py:60 in           │                 
+                    │ exec_module                             │                 
+                    │                                         │                 
+                    │    57 │                                 │                 
+                    │    58 │   def exec_module(self, module) │                 
+                    │    59 │   │   self._tracer.reset()      │                 
+                    │ ❱  60 │   │   super().exec_module(modul │                 
+                    │    61 │   │   self._tracer.store_import │                 
+                    │    62 │                                 │                 
+                    │    63 │   def get_code(self, fullname)  │                 
+                    │ in exec_module:883                      │                 
+                    │ in _call_with_frames_removed:241        │                 
+                    │                                         │                 
+                    │ /home/pakambo/Documents/6th             │                 
+                    │ sem/cse202/lab5/algorithms/./algorithms │                 
+                    │ /tree/bin_tree_to_list.py:1 in <module> │                 
+                    │                                         │                 
+                    │ ❱  1 from tree.tree import TreeNode     │                 
+                    │    2                                    │                 
+                    │    3                                    │                 
+                    │    4 def bin_tree_to_list(root):        │                 
+                    ╰─────────────────────────────────────────╯                 
+                    ModuleNotFoundError: No module named 'tree'                 
+algorithms.tree.deepest_left - Skipped due to error: [06:13:02] ERROR    Failed to load SUT: No module named 'tree'  generator.py:175
+                    ╭─── Traceback (most recent call last) ───╮                 
+                    │ /home/pakambo/miniconda3/envs/lab51/lib │                 
+                    │ /python3.10/site-packages/pynguin/gener │                 
+                    │ ator.py:171 in _load_sut                │                 
+                    │                                         │                 
+                    │   168 │   try:                          │                 
+                    │   169 │   │   # We need to set the curr │                 
+                    │   170 │   │   tracer.current_thread_ide │                 
+                    │ ❱ 171 │   │   importlib.import_module(c │                 
+                    │   172 │   except ImportError as ex:     │                 
+                    │   173 │   │   # A module could not be i │                 
+                    │   174 │   │   # are missing or it is ma │                 
+                    │                                         │                 
+                    │ /home/pakambo/miniconda3/envs/lab51/lib │                 
+                    │ /python3.10/importlib/__init__.py:126   │                 
+                    │ in import_module                        │                 
+                    │                                         │                 
+                    │   123 │   │   │   if character != '.':  │                 
+                    │   124 │   │   │   │   break             │                 
+                    │   125 │   │   │   level += 1            │                 
+                    │ ❱ 126 │   return _bootstrap._gcd_import │                 
+                    │   127                                   │                 
+                    │   128                                   │                 
+                    │   129 _RELOADING = {}                   │                 
+                    │ in _gcd_import:1050                     │                 
+                    │ in _find_and_load:1027                  │                 
+                    │ in _find_and_load_unlocked:1006         │                 
+                    │ in _load_unlocked:688                   │                 
+                    │                                         │                 
+                    │ /home/pakambo/miniconda3/envs/lab51/lib │                 
+                    │ /python3.10/site-packages/pynguin/instr │                 
+                    │ umentation/machinery.py:60 in           │                 
+                    │ exec_module                             │                 
+                    │                                         │                 
+                    │    57 │                                 │                 
+                    │    58 │   def exec_module(self, module) │                 
+                    │    59 │   │   self._tracer.reset()      │                 
+                    │ ❱  60 │   │   super().exec_module(modul │                 
+                    │    61 │   │   self._tracer.store_import │                 
+                    │    62 │                                 │                 
+                    │    63 │   def get_code(self, fullname)  │                 
+                    │ in exec_module:883                      │                 
+                    │ in _call_with_frames_removed:241        │                 
+                    │                                         │                 
+                    │ /home/pakambo/Documents/6th             │                 
+                    │ sem/cse202/lab5/algorithms/./algorithms │                 
+                    │ /tree/deepest_left.py:15 in <module>    │                 
+                    │                                         │                 
+                    │   12 │   │   │   # 7                    │                 
+                    │   13 # should return 4.                 │                 
+                    │   14                                    │                 
+                    │ ❱ 15 from tree.tree import TreeNode     │                 
+                    │   16                                    │                 
+                    │   17                                    │                 
+                    │   18 class DeepestLeft:                 │                 
+                    ╰─────────────────────────────────────────╯                 
+                    ModuleNotFoundError: No module named 'tree'                 
+algorithms.tree.max_height - Skipped due to error: [06:34:02] ERROR    Failed to load SUT: No module named 'tree'  generator.py:175
+                    ╭─── Traceback (most recent call last) ───╮                 
+                    │ /home/pakambo/miniconda3/envs/lab51/lib │                 
+                    │ /python3.10/site-packages/pynguin/gener │                 
+                    │ ator.py:171 in _load_sut                │                 
+                    │                                         │                 
+                    │   168 │   try:                          │                 
+                    │   169 │   │   # We need to set the curr │                 
+                    │   170 │   │   tracer.current_thread_ide │                 
+                    │ ❱ 171 │   │   importlib.import_module(c │                 
+                    │   172 │   except ImportError as ex:     │                 
+                    │   173 │   │   # A module could not be i │                 
+                    │   174 │   │   # are missing or it is ma │                 
+                    │                                         │                 
+                    │ /home/pakambo/miniconda3/envs/lab51/lib │                 
+                    │ /python3.10/importlib/__init__.py:126   │                 
+                    │ in import_module                        │                 
+                    │                                         │                 
+                    │   123 │   │   │   if character != '.':  │                 
+                    │   124 │   │   │   │   break             │                 
+                    │   125 │   │   │   level += 1            │                 
+                    │ ❱ 126 │   return _bootstrap._gcd_import │                 
+                    │   127                                   │                 
+                    │   128                                   │                 
+                    │   129 _RELOADING = {}                   │                 
+                    │ in _gcd_import:1050                     │                 
+                    │ in _find_and_load:1027                  │                 
+                    │ in _find_and_load_unlocked:1006         │                 
+                    │ in _load_unlocked:688                   │                 
+                    │                                         │                 
+                    │ /home/pakambo/miniconda3/envs/lab51/lib │                 
+                    │ /python3.10/site-packages/pynguin/instr │                 
+                    │ umentation/machinery.py:60 in           │                 
+                    │ exec_module                             │                 
+                    │                                         │                 
+                    │    57 │                                 │                 
+                    │    58 │   def exec_module(self, module) │                 
+                    │    59 │   │   self._tracer.reset()      │                 
+                    │ ❱  60 │   │   super().exec_module(modul │                 
+                    │    61 │   │   self._tracer.store_import │                 
+                    │    62 │                                 │                 
+                    │    63 │   def get_code(self, fullname)  │                 
+                    │ in exec_module:883                      │                 
+                    │ in _call_with_frames_removed:241        │                 
+                    │                                         │                 
+                    │ /home/pakambo/Documents/6th             │                 
+                    │ sem/cse202/lab5/algorithms/./algorithms │                 
+                    │ /tree/max_height.py:15 in <module>      │                 
+                    │                                         │                 
+                    │   12                                    │                 
+                    │   13 # iterative                        │                 
+                    │   14                                    │                 
+                    │ ❱ 15 from tree import TreeNode          │                 
+                    │   16                                    │                 
+                    │   17                                    │                 
+                    │   18 def max_height(root):              │                 
+                    ╰─────────────────────────────────────────╯                 
+                    ModuleNotFoundError: No module named 'tree'                 
+algorithms.tree.min_height - Skipped due to error: [06:34:04] ERROR    Failed to load SUT: No module named 'tree'  generator.py:175
+                    ╭─── Traceback (most recent call last) ───╮                 
+                    │ /home/pakambo/miniconda3/envs/lab51/lib │                 
+                    │ /python3.10/site-packages/pynguin/gener │                 
+                    │ ator.py:171 in _load_sut                │                 
+                    │                                         │                 
+                    │   168 │   try:                          │                 
+                    │   169 │   │   # We need to set the curr │                 
+                    │   170 │   │   tracer.current_thread_ide │                 
+                    │ ❱ 171 │   │   importlib.import_module(c │                 
+                    │   172 │   except ImportError as ex:     │                 
+                    │   173 │   │   # A module could not be i │                 
+                    │   174 │   │   # are missing or it is ma │                 
+                    │                                         │                 
+                    │ /home/pakambo/miniconda3/envs/lab51/lib │                 
+                    │ /python3.10/importlib/__init__.py:126   │                 
+                    │ in import_module                        │                 
+                    │                                         │                 
+                    │   123 │   │   │   if character != '.':  │                 
+                    │   124 │   │   │   │   break             │                 
+                    │   125 │   │   │   level += 1            │                 
+                    │ ❱ 126 │   return _bootstrap._gcd_import │                 
+                    │   127                                   │                 
+                    │   128                                   │                 
+                    │   129 _RELOADING = {}                   │                 
+                    │ in _gcd_import:1050                     │                 
+                    │ in _find_and_load:1027                  │                 
+                    │ in _find_and_load_unlocked:1006         │                 
+                    │ in _load_unlocked:688                   │                 
+                    │                                         │                 
+                    │ /home/pakambo/miniconda3/envs/lab51/lib │                 
+                    │ /python3.10/site-packages/pynguin/instr │                 
+                    │ umentation/machinery.py:60 in           │                 
+                    │ exec_module                             │                 
+                    │                                         │                 
+                    │    57 │                                 │                 
+                    │    58 │   def exec_module(self, module) │                 
+                    │    59 │   │   self._tracer.reset()      │                 
+                    │ ❱  60 │   │   super().exec_module(modul │                 
+                    │    61 │   │   self._tracer.store_import │                 
+                    │    62 │                                 │                 
+                    │    63 │   def get_code(self, fullname)  │                 
+                    │ in exec_module:883                      │                 
+                    │ in _call_with_frames_removed:241        │                 
+                    │                                         │                 
+                    │ /home/pakambo/Documents/6th             │                 
+                    │ sem/cse202/lab5/algorithms/./algorithms │                 
+                    │ /tree/min_height.py:1 in <module>       │                 
+                    │                                         │                 
+                    │ ❱  1 from tree import TreeNode          │                 
+                    │    2                                    │                 
+                    │    3                                    │                 
+                    │    4 def min_depth(self, root):         │                 
+                    ╰─────────────────────────────────────────╯                 
+                    ModuleNotFoundError: No module named 'tree'                 
+

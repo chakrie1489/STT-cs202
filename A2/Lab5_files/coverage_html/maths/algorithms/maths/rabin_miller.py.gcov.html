@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.info - maths/algorithms/maths/rabin_miller.py</title>
+  <link rel="stylesheet" type="text/css" href="../../../gcov.css">
+</head>
+
+<body>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="title">LCOV - code coverage report</td></tr>
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+            <tr>
+              <td width="100%">
+                <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="10%" class="headerValue"><a href="../../../index.html">top level</a> - <a href="index.html">maths/algorithms/maths</a> - rabin_miller.py<span style="font-size: 80%;"> (source / <a href="rabin_miller.py.func-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="5%"></td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
+            <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntryHi">92.3&nbsp;%</td>
+            <td class="headerCovTableEntry">26</td>
+            <td class="headerCovTableEntry">24</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test Date:</td>
+            <td class="headerValue">2025-03-23 23:01:00</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
+            <td class="headerCovTableEntry">3</td>
+            <td class="headerCovTableEntry">3</td>
+          </tr>
+                  <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+
+          <table cellpadding=0 cellspacing=0 border=0>
+            <tr>
+              <td><br></td>
+            </tr>
+            <tr>
+              <td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : &quot;&quot;&quot;</span>
+<span id="L2"><span class="lineNum">       2</span>              : Rabin-Miller primality test</span>
+<span id="L3"><span class="lineNum">       3</span>              : returning False implies that n is guaranteed composite</span>
+<span id="L4"><span class="lineNum">       4</span>              : returning True means that n is probably prime</span>
+<span id="L5"><span class="lineNum">       5</span>              : with a 4 ** -k chance of being wrong</span>
+<span id="L6"><span class="lineNum">       6</span>              : &quot;&quot;&quot;</span>
+<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC tlaBgGNC">           1 : import random</span></span>
+<span id="L8"><span class="lineNum">       8</span>              : </span>
+<span id="L9"><span class="lineNum">       9</span>              : </span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">           1 : def is_prime(n, k):</span></span>
+<span id="L11"><span class="lineNum">      11</span>              : </span>
+<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">           1 :     def pow2_factor(num):</span></span>
+<span id="L13"><span class="lineNum">      13</span>              :         &quot;&quot;&quot;factor n into a power of 2 times an odd number&quot;&quot;&quot;</span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           1 :         power = 0</span></span>
+<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">           1 :         while num % 2 == 0:</span></span>
+<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">           1 :             num /= 2</span></span>
+<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           1 :             power += 1</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">           1 :         return power, num</span></span>
+<span id="L19"><span class="lineNum">      19</span>              : </span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           1 :     def valid_witness(a):</span></span>
+<span id="L21"><span class="lineNum">      21</span>              :         &quot;&quot;&quot;</span>
+<span id="L22"><span class="lineNum">      22</span>              :         returns true if a is a valid 'witness' for n</span>
+<span id="L23"><span class="lineNum">      23</span>              :         a valid witness increases chances of n being prime</span>
+<span id="L24"><span class="lineNum">      24</span>              :         an invalid witness guarantees n is composite</span>
+<span id="L25"><span class="lineNum">      25</span>              :         &quot;&quot;&quot;</span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">           1 :         x = pow(int(a), int(d), int(n))</span></span>
+<span id="L27"><span class="lineNum">      27</span>              : </span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">           1 :         if x == 1 or x == n - 1:</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">           1 :             return False</span></span>
+<span id="L30"><span class="lineNum">      30</span>              : </span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           1 :         for _ in range(r - 1):</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           1 :             x = pow(int(x), int(2), int(n))</span></span>
+<span id="L33"><span class="lineNum">      33</span>              : </span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">           1 :             if x == 1:</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaUNC tlaBgUNC">           0 :                 return True</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">           1 :             if x == n - 1:</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">           1 :                 return False</span></span>
+<span id="L38"><span class="lineNum">      38</span>              : </span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">           1 :         return True</span></span>
+<span id="L40"><span class="lineNum">      40</span>              : </span>
+<span id="L41"><span class="lineNum">      41</span>              :     # precondition n &gt;= 5</span>
+<span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">           1 :     if n &lt; 5:</span></span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaUNC tlaBgUNC">           0 :         return n == 2 or n == 3  # True for prime</span></span>
+<span id="L44"><span class="lineNum">      44</span>              : </span>
+<span id="L45"><span class="lineNum">      45</span> <span class="tlaGNC tlaBgGNC">           1 :     r, d = pow2_factor(n - 1)</span></span>
+<span id="L46"><span class="lineNum">      46</span>              : </span>
+<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC">           1 :     for _ in range(k):</span></span>
+<span id="L48"><span class="lineNum">      48</span> <span class="tlaGNC">           1 :         if valid_witness(random.randrange(2, n - 2)):</span></span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">           1 :             return False</span></span>
+<span id="L50"><span class="lineNum">      50</span>              : </span>
+<span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC">           1 :     return True</span></span>
+        </pre>
+              </td>
+            </tr>
+          </table>
+          <br>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.0-1</a></td></tr>
+          </table>
+          <br>
+
+</body>
+</html>

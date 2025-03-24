@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.info - distribution/algorithms/distribution/histogram.py</title>
+  <link rel="stylesheet" type="text/css" href="../../../gcov.css">
+</head>
+
+<body>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="title">LCOV - code coverage report</td></tr>
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+            <tr>
+              <td width="100%">
+                <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="10%" class="headerValue"><a href="../../../index.html">top level</a> - <a href="index.html">distribution/algorithms/distribution</a> - histogram.py<span style="font-size: 80%;"> (source / <a href="histogram.py.func-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="5%"></td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
+            <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntry">5</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test Date:</td>
+            <td class="headerValue">2025-03-23 23:01:00</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntry">1</td>
+          </tr>
+                  <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+
+          <table cellpadding=0 cellspacing=0 border=0>
+            <tr>
+              <td><br></td>
+            </tr>
+            <tr>
+              <td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : &quot;&quot;&quot;</span>
+<span id="L2"><span class="lineNum">       2</span>              : Histogram function.</span>
+<span id="L3"><span class="lineNum">       3</span>              : </span>
+<span id="L4"><span class="lineNum">       4</span>              : Histogram is an accurate representation of the distribution of numerical data.</span>
+<span id="L5"><span class="lineNum">       5</span>              : It is an estimate of the probability distribution of a continuous variable.</span>
+<span id="L6"><span class="lineNum">       6</span>              : https://en.wikipedia.org/wiki/Histogram</span>
+<span id="L7"><span class="lineNum">       7</span>              : </span>
+<span id="L8"><span class="lineNum">       8</span>              : Example:</span>
+<span id="L9"><span class="lineNum">       9</span>              :     list_1 = [3, 3, 2, 1]</span>
+<span id="L10"><span class="lineNum">      10</span>              :     :return {1: 1, 2: 1, 3: 2}</span>
+<span id="L11"><span class="lineNum">      11</span>              : </span>
+<span id="L12"><span class="lineNum">      12</span>              :     list_2 = [2, 3, 5, 5, 5, 6, 4, 3, 7]</span>
+<span id="L13"><span class="lineNum">      13</span>              :     :return {2: 1, 3: 2, 4: 1, 5: 3, 6: 1, 7: 1}</span>
+<span id="L14"><span class="lineNum">      14</span>              : &quot;&quot;&quot;</span>
+<span id="L15"><span class="lineNum">      15</span>              : </span>
+<span id="L16"><span class="lineNum">      16</span>              : </span>
+<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC tlaBgGNC">           1 : def get_histogram(input_list: list) -&gt; dict:</span></span>
+<span id="L18"><span class="lineNum">      18</span>              :     &quot;&quot;&quot;</span>
+<span id="L19"><span class="lineNum">      19</span>              :     Get histogram representation</span>
+<span id="L20"><span class="lineNum">      20</span>              :     :param input_list: list with different and unordered values</span>
+<span id="L21"><span class="lineNum">      21</span>              :     :return histogram: dict with histogram of input_list</span>
+<span id="L22"><span class="lineNum">      22</span>              :     &quot;&quot;&quot;</span>
+<span id="L23"><span class="lineNum">      23</span>              :     # Create dict to store histogram</span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           1 :     histogram = {}</span></span>
+<span id="L25"><span class="lineNum">      25</span>              :     # For each list value, add one to the respective histogram dict position</span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">           1 :     for i in input_list:</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">           1 :         histogram[i] = histogram.get(i, 0) + 1</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">           1 :     return histogram</span></span>
+        </pre>
+              </td>
+            </tr>
+          </table>
+          <br>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.0-1</a></td></tr>
+          </table>
+          <br>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - combined_coverage.info - dp/algorithms/dp/egg_drop.py</title>
+  <link rel="stylesheet" type="text/css" href="../../../gcov.css">
+</head>
+
+<body>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="title">LCOV - code coverage report</td></tr>
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+            <tr>
+              <td width="100%">
+                <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="10%" class="headerValue"><a href="../../../index.html">top level</a> - <a href="index.html">dp/algorithms/dp</a> - egg_drop.py<span style="font-size: 80%;"> (source / <a href="egg_drop.py.func-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="5%"></td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
+            <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">combined_coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
+            <td class="headerCovTableEntry">16</td>
+            <td class="headerCovTableEntry">16</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test Date:</td>
+            <td class="headerValue">2025-03-25 01:30:07</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntry">1</td>
+          </tr>
+                  <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+
+          <table cellpadding=0 cellspacing=0 border=0>
+            <tr>
+              <td><br></td>
+            </tr>
+            <tr>
+              <td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : &quot;&quot;&quot;</span>
+<span id="L2"><span class="lineNum">       2</span>              : You are given K eggs, and you have access to a building with N floors</span>
+<span id="L3"><span class="lineNum">       3</span>              : from 1 to N. Each egg is identical in function, and if an egg breaks,</span>
+<span id="L4"><span class="lineNum">       4</span>              : you cannot drop it again. You know that there exists a floor F with</span>
+<span id="L5"><span class="lineNum">       5</span>              : 0 &lt;= F &lt;= N such that any egg dropped at a floor higher than F will</span>
+<span id="L6"><span class="lineNum">       6</span>              : break, and any egg dropped at or below floor F will not break.</span>
+<span id="L7"><span class="lineNum">       7</span>              : Each move, you may take an egg (if you have an unbroken one) and drop</span>
+<span id="L8"><span class="lineNum">       8</span>              : it from any floor X (with 1 &lt;= X &lt;= N). Your goal is to know with</span>
+<span id="L9"><span class="lineNum">       9</span>              : certainty what the value of F is. What is the minimum number of moves</span>
+<span id="L10"><span class="lineNum">      10</span>              : that you need to know with certainty what F is, regardless of the</span>
+<span id="L11"><span class="lineNum">      11</span>              : initial value of F?</span>
+<span id="L12"><span class="lineNum">      12</span>              : </span>
+<span id="L13"><span class="lineNum">      13</span>              : Example:</span>
+<span id="L14"><span class="lineNum">      14</span>              : Input: K = 1, N = 2</span>
+<span id="L15"><span class="lineNum">      15</span>              : Output: 2</span>
+<span id="L16"><span class="lineNum">      16</span>              : Explanation:</span>
+<span id="L17"><span class="lineNum">      17</span>              : Drop the egg from floor 1.  If it breaks, we know with certainty that F = 0.</span>
+<span id="L18"><span class="lineNum">      18</span>              : Otherwise, drop the egg from floor 2.  If it breaks, we know with</span>
+<span id="L19"><span class="lineNum">      19</span>              : certainty that F = 1.</span>
+<span id="L20"><span class="lineNum">      20</span>              : If it didn't break, then we know with certainty F = 2.</span>
+<span id="L21"><span class="lineNum">      21</span>              : Hence, we needed 2 moves in the worst case to know what F is with certainty.</span>
+<span id="L22"><span class="lineNum">      22</span>              : &quot;&quot;&quot;</span>
+<span id="L23"><span class="lineNum">      23</span>              : </span>
+<span id="L24"><span class="lineNum">      24</span>              : # A Dynamic Programming based Python Program for the Egg Dropping Puzzle</span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC tlaBgGNC">           1 : INT_MAX = 32767</span></span>
+<span id="L26"><span class="lineNum">      26</span>              : </span>
+<span id="L27"><span class="lineNum">      27</span>              : </span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">           1 : def egg_drop(n, k):</span></span>
+<span id="L29"><span class="lineNum">      29</span>              :     &quot;&quot;&quot;</span>
+<span id="L30"><span class="lineNum">      30</span>              :     Keyword arguments:</span>
+<span id="L31"><span class="lineNum">      31</span>              :     n -- number of floors</span>
+<span id="L32"><span class="lineNum">      32</span>              :     k -- number of eggs</span>
+<span id="L33"><span class="lineNum">      33</span>              :     &quot;&quot;&quot;</span>
+<span id="L34"><span class="lineNum">      34</span>              :     # A 2D table where entery eggFloor[i][j] will represent minimum</span>
+<span id="L35"><span class="lineNum">      35</span>              :     # number of trials needed for i eggs and j floors.</span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">           1 :     egg_floor = [[0 for _ in range(k + 1)] for _ in range(n + 1)]</span></span>
+<span id="L37"><span class="lineNum">      37</span>              : </span>
+<span id="L38"><span class="lineNum">      38</span>              :     # We need one trial for one floor and 0 trials for 0 floors</span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">           1 :     for i in range(1, n+1):</span></span>
+<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">           1 :         egg_floor[i][1] = 1</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">           1 :         egg_floor[i][0] = 0</span></span>
+<span id="L42"><span class="lineNum">      42</span>              : </span>
+<span id="L43"><span class="lineNum">      43</span>              :     # We always need j trials for one egg and j floors.</span>
+<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">           1 :     for j in range(1, k+1):</span></span>
+<span id="L45"><span class="lineNum">      45</span> <span class="tlaGNC">           1 :         egg_floor[1][j] = j</span></span>
+<span id="L46"><span class="lineNum">      46</span>              : </span>
+<span id="L47"><span class="lineNum">      47</span>              :     # Fill rest of the entries in table using optimal substructure</span>
+<span id="L48"><span class="lineNum">      48</span>              :     # property</span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">           1 :     for i in range(2, n+1):</span></span>
+<span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC">           1 :         for j in range(2, k+1):</span></span>
+<span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC">           1 :             egg_floor[i][j] = INT_MAX</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">           1 :             for x in range(1, j+1):</span></span>
+<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">           1 :                 res = 1 + max(egg_floor[i-1][x-1], egg_floor[i][j-x])</span></span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">           1 :                 if res &lt; egg_floor[i][j]:</span></span>
+<span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">           1 :                     egg_floor[i][j] = res</span></span>
+<span id="L56"><span class="lineNum">      56</span>              : </span>
+<span id="L57"><span class="lineNum">      57</span>              :     # eggFloor[n][k] holds the result</span>
+<span id="L58"><span class="lineNum">      58</span> <span class="tlaGNC">           1 :     return egg_floor[n][k]</span></span>
+        </pre>
+              </td>
+            </tr>
+          </table>
+          <br>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.0-1</a></td></tr>
+          </table>
+          <br>
+
+</body>
+</html>
