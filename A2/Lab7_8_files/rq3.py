@@ -4,46 +4,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 from collections import Counter
 
-# Bandit CWE Mappings
-BANDIT_CWE_MAPPINGS = {
-    "B101": "CWE-338",  # Use of weak random generator
-    "B102": "CWE-798",  # Hardcoded password
-    "B103": "CWE-321",  # Use of temp file without secure options
-    "B104": "CWE-732",  # Unrestricted file access
-    "B105": "CWE-798",  # Hardcoded passwords
-    "B106": "CWE-798",  # Hardcoded passwords
-    "B107": "CWE-798",  # Hardcoded passwords in string
-    "B108": "CWE-200",  # Information exposure
-    "B110": "CWE-829",  # Pickle module usage (possible remote execution)
-    "B112": "CWE-78",   # Use of eval()
-    "B201": "CWE-242",  # Use of exec()
-    "B301": "CWE-327",  # Use of weak hashing function (md5, sha1)
-    "B302": "CWE-326",  # Use of insufficiently secure cipher mode
-    "B303": "CWE-327",  # Use of insecure cipher
-    "B304": "CWE-327",  # Use of insecure hash function
-    "B305": "CWE-327",  # Use of insecure cipher (Blowfish, DES, RC2, etc.)
-    "B306": "CWE-276",  # Improper file permissions
-    "B307": "CWE-269",  # Insecure YAML loading
-    "B308": "CWE-732",  # Insecure file permissions
-    "B309": "CWE-610",  # SQL statement constructed with string formatting
-    "B310": "CWE-78",   # Use of subprocess with shell=True (Command Injection)
-    "B311": "CWE-78",   # Use of os.system() (Command Injection)
-    "B312": "CWE-78",   # Use of popen functions (Command Injection)
-    "B313": "CWE-78",   # Use of input() in Python 2
-    "B314": "CWE-89",   # Possible SQL injection
-    "B315": "CWE-117",  # Improper log handling (user-controlled input)
-    "B316": "CWE-703",  # Incorrect error handling
-    "B317": "CWE-502",  # Deserialization of untrusted data
-    "B318": "CWE-327",  # Use of weak cryptographic algorithm
-    "B319": "CWE-326",  # Use of weak cipher
-    "B320": "CWE-798",  # Hardcoded cryptographic key
-    "B321": "CWE-502",  # Unsafe XML deserialization
-    "B322": "CWE-23",   # Path traversal vulnerability
-    "B323": "CWE-200",  # Information exposure through debug mode
-    "B324": "CWE-312",  # Storing passwords in plaintext
-    "B325": "CWE-732",  # Incorrect file permission settings
-}
-
 # Path to Lab 7 & 8 directory
 lab_dir = os.path.expanduser("~/Documents/6th sem/cse202/lab7_8")
 
@@ -64,9 +24,9 @@ for repo_name in ["beets", "theHarvester", "ChatTTS"]:
                     data = json.load(f)
 
                 for issue in data.get("results", []):
-                    issue_code = issue.get("test_id", "")
-                    if issue_code in BANDIT_CWE_MAPPINGS:
-                        cwe_counter[BANDIT_CWE_MAPPINGS[issue_code]] += 1
+                    issue_cwe = issue.get("issue_cwe", {}).get("id")  # Extract CWE ID
+                    if issue_cwe:
+                        cwe_counter[issue_cwe] += 1
         
         repo_cwe_counts[repo_name] = dict(cwe_counter)
 
@@ -96,7 +56,7 @@ for i, repo in enumerate(repo_names):
 # Formatting the plot
 plt.xlabel("CWE ID")
 plt.ylabel("Frequency")
-plt.title("Comparison of CWE Frequencies Across Repositories")
+plt.title("Comparison of Top 10 CWE Frequencies Across Repositories")
 plt.xticks(x + bar_width, top_cwes, rotation=45)
 plt.legend(title="Repositories")
 plt.grid(axis="y")
